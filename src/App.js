@@ -1,12 +1,15 @@
 import React from 'react';
-import './App.css';
+import './global.css';
+import Home from './components/Home/Home'
 
-function App() {
-  return (
-    <div>
-      <h1>test</h1>
-    </div>
-  )
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <Home />
+      </div>
+    )
+  }
 }
 
 export default App;
