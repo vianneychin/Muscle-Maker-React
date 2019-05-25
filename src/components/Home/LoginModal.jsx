@@ -5,18 +5,21 @@ import styled from 'styled-components'
 //---------------styled-components-----------------
 
 const Container = styled.div`
+  background-color: blue;
+  height: 55vh;
+  width: 35vw;
+
   > form {
     display: flex;
     flex-direction: column;
-    width: 50vw;
-    height: 20vh;
+    justify-content: center;
+    align-items: center;
     background-color: red;
     > input {
       width: 50%;
     }
   }
 `
-
 //-------------------------------------------------
 
 const LoginModal = ( props ) => {

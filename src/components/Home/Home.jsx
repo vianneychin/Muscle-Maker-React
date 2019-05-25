@@ -40,8 +40,8 @@ class Home extends React.Component {
           <button>Login</button>
         </Buttons>
         {/* MODALS */}
-        <LoginModal />
         <RegisterModal />
+        <LoginModal />
         {/* ----- */}
       </div>
     )
