@@ -34,15 +34,13 @@ class Home extends React.Component {
           <p>get healthier,</p>
           <p>look fitter,</p>
           <p>and feel better</p>
+          <RegisterModal /> {/* Component */}
+          <LoginModal  />   {/* Component */}
         </Section>
         <Buttons>
           <button>Register</button>
           <button>Login</button>
         </Buttons>
-        {/* MODALS */}
-        <RegisterModal />
-        <LoginModal />
-        {/* ----- */}
       </div>
     )
   }

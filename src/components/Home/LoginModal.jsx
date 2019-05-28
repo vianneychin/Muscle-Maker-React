@@ -2,25 +2,25 @@ import React  from 'react'
 import styled from 'styled-components'
 
 
-//---------------styled-components-----------------
+/* <----------- styled components -----------> */
 
 const Container = styled.div`
   background-color: blue;
   height: 55vh;
-  width: 35vw;
+  width: 36.8em;
 
   > form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: red;
+    background-color: grey;
     > input {
       width: 50%;
     }
   }
 `
-//-------------------------------------------------
+/* <-----------------------------------------> */
 
 const LoginModal = ( props ) => {
   return (
