@@ -1,12 +1,11 @@
 import React from 'react'
-import youtube from './api/youtube'
 
 class YoutubeComponent extends React.Component {
-  render () {
+  render() {
     return (
-      <input placeholder="youtube" />
+      <div>This is the youtube component</div>
     )
   }
 }
 
-export default YoutubeComponent.jsx
+export default YoutubeComponent
