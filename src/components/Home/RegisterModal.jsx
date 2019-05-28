@@ -1,7 +1,13 @@
 import React  from 'react'
 import styled from 'styled-components'
 
+<<<<<<< HEAD
 //*<<-------------styled-components--------------->>
+=======
+
+
+/* <----------- styled components -----------> */
+>>>>>>> master
 const Container = styled.div`
   background-color: dodgerblue;
   height: 55vh;
@@ -18,7 +24,11 @@ const Container = styled.div`
     }
   }
 `
+<<<<<<< HEAD
 //*<<--------------------------------------------->>
+=======
+/* <-----------------------------------------> */
+>>>>>>> master
 
 const RegisterModal = ( props ) => {
   return (

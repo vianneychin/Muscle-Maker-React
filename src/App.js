@@ -1,5 +1,5 @@
 import                  './global.css';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import * as routes from './routes/routes'
 import React       from 'react';
 import Home        from './components/Home/Home'
