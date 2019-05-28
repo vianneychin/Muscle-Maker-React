@@ -5,12 +5,30 @@ import React       from 'react';
 import Home        from './components/Home/Home'
 import Dashboard   from './components/Dashboard/Dashboard'
 import Workouts    from './components/Workouts/Workouts'
+import { async } from 'q';
 
 class App extends React.Component {
   componentDidMount(){
     this.getWorkouts()
   }
-  handleRegister = async (data) => {
+  handleRegister = async (data) =>{
+    try {
+      const registarCall = fetch('http//localhost:8000/users/registration', {
+        method: 'POST',
+        body: JSON.stringify(data), 
+        credentials: 'include',
+        headers: {
+          'Content_Type': 'application/json'
+        }
+      })
+      const response = registarCall.json()
+      console.log(response, 'from the flask server on localhost:8000')
+    } catch (err) {
+      console.log(err)
+      
+    }
+  }
+  getWorkouts = async () => {
     try {
       const response = await fetch('http://localhost:8000/api/v1/workouts', {
         credentials: 'include'

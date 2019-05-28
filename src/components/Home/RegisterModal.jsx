@@ -26,6 +26,7 @@ const RegisterModal = ( props ) => {
       <h1>Register</h1>
       <form>
         <input type="text" placeholder="username" />
+        <input type="text" placeholder="email" />
         <input type="password" placeholder="password" />
         <input type="password" placeholder="verify password" />
         <button>Enter</button>
