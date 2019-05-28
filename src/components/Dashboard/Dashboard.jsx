@@ -1,6 +1,7 @@
 import React    from 'react'
 import { Link } from 'react-router-dom'
 import styled   from 'styled-components'
+import YoutubeComponent from './YoutubeComponent/YoutubeComponent'
 
 
 /* <----------- styled components -----------> */
@@ -44,6 +45,7 @@ const Dashboard = ( props ) => {
           <Link to="/workouts"><h1>My Workouts</h1></Link>
         </Main>
       </HeaderBackground>
+      <YoutubeComponent />
     </Wrapper>
   )
 }
