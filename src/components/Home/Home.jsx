@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import LoginModal from './LoginModal'
+import React         from 'react'
+import styled        from 'styled-components'
+import LoginModal    from './LoginModal'
 import RegisterModal from './RegisterModal'
 
 //---------------styled-components-----------------
