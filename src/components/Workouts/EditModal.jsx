@@ -25,6 +25,7 @@ const Inputs = styled.div`
 const EditModal = (props) => {
   return (
     <Modal>
+      <button onClick={props.hideEditModal}>✕</button>
       <h1>Edit Workout</h1>
       <Inputs>
         <label>Workout Name:</label>
