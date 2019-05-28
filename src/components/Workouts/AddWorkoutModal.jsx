@@ -24,6 +24,7 @@ const AddWorkoutModal = (props) => {
   return (
     <Modal>
       <Inputs>
+        <button onClick={props.hideAddWorkoutModal}>✕</button>
         <h1>Add Workout</h1>
 
         <label>Workout Name:</label>
