@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import LoginModal from './LoginModal'
+import React         from 'react'
+import styled        from 'styled-components'
+import LoginModal    from './LoginModal'
 import RegisterModal from './RegisterModal'
 
 //---------------styled-components-----------------
@@ -34,15 +34,13 @@ class Home extends React.Component {
           <p>get healthier,</p>
           <p>look fitter,</p>
           <p>and feel better</p>
+          <RegisterModal /> {/* Component */}
+          <LoginModal  />   {/* Component */}
         </Section>
         <Buttons>
           <button>Register</button>
           <button>Login</button>
         </Buttons>
-        {/* MODALS */}
-        <RegisterModal />
-        <LoginModal />
-        {/* ----- */}
       </div>
     )
   }
