@@ -4,7 +4,6 @@ import LoginModal    from './LoginModal'
 import RegisterModal from './RegisterModal'
 
 //---------------styled-components-----------------
-
 const Title = styled.div`
   display: flex;
   justify-content: center;
@@ -20,13 +19,42 @@ const Buttons = styled.section`
   justify-content: center;
   align-items: center;
 `
-
 //-------------------------------------------------
 
 class Home extends React.Component {
+  state = {
+    registerModal: false,
+    loginModal: false
+  }
+  showRegisterModal = () => {
+    this.setState({ registerModal: true })
+  }
+  hideRegisterModal = () => {
+    this.setState({ registerModal: false })
+  }
+  showLoginModal = () => {
+    this.setState({ loginModal: true })
+  }
+  hideLoginModal = () => {
+    this.setState({ loginModal: false })
+  }
   render() {
     return (
       <div>
+        {
+          this.state.registerModal
+          ? <RegisterModal
+              hideRegisterModal={ this.hideRegisterModal }
+            />
+          : <div />
+        }
+        {
+          this.state.loginModal
+          ? <LoginModal
+              hideLoginModal={ this.hideLoginModal }
+            />
+          : < div />
+        }
         <Title>
           <h1>MUSCLE MAKER</h1>
         </Title>
@@ -38,8 +66,8 @@ class Home extends React.Component {
           <LoginModal  />   {/* Component */}
         </Section>
         <Buttons>
-          <button>Register</button>
-          <button>Login</button>
+          <button type="button" onClick={this.showRegisterModal}>Register</button>
+          <button type="button" onClick={this.showLoginModal}>Login</button>
         </Buttons>
       </div>
     )
