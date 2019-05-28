@@ -23,6 +23,7 @@ const Container = styled.div`
 const RegisterModal = ( props ) => {
   return (
     <Container>
+      <button onClick={props.hideRegisterModal}>✕</button>
       <h1>Register</h1>
       <form>
         <input type="text" placeholder="username" />

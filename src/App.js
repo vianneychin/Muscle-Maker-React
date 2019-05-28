@@ -8,7 +8,7 @@ import Workouts    from './components/Workouts/Workouts'
 
 class App extends React.Component {
   componentDidMount(){
-    this.getWorkouts()
+    // this.getWorkouts()
   }
   handleRegister = async (data) => {
     try {

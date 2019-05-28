@@ -25,6 +25,7 @@ const Container = styled.div`
 const LoginModal = ( props ) => {
   return (
     <Container>
+      <button onClick={props.hideLoginModal}>✕</button>
       <h1>Login</h1>
       <form>
         <input placeholder="username" />

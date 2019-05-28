@@ -23,7 +23,9 @@ const Workouts = ( props ) => {
     <div>
       <Link to="/dashboard"><h3>Go back</h3></Link>
 
-{/*       <a><h1>Add a Workout</h1></a> */}
+      {/* Toggle a modal on or off. */}
+      <button>Add a Workout</button>
+      <button>Edit</button>
 
       <Header>
         <h4>workout</h4>
