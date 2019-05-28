@@ -7,6 +7,23 @@ import Dashboard   from './components/Dashboard/Dashboard'
 import Workouts    from './components/Workouts/Workouts'
 
 class App extends React.Component {
+  componentDidMount(){
+    this.getWorkouts()
+  }
+  handleRegister = async (data) => {
+    try {
+      const response = await fetch('http://localhost:8000/api/v1/workouts', {
+        credentials: 'include'
+      })
+
+      const responseParsed = await response.json()
+      console.log(responseParsed, 'workouts')
+      
+    } catch (err) {
+      console.log(err)
+      
+    }
+  }
   render() {
     return (
       <div>
