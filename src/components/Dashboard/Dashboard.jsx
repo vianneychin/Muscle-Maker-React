@@ -14,17 +14,7 @@ const HeaderBackground = styled.div`
   background-position: top;
   height: 26em;
 `
-const ShadeBackground = styled.div`
-  background-color: rgba(0,0,0,0.5);
-  width: 100%;
-  height: 54%;
-  position: absolute;
-  -webkit-transform: translate(-50%,-50%);
-  -ms-transform:     translate(-50%,-50%);
-  transform:         translate(-50%,-50%);
-  top: 5%;
-  left: 50%;
-`
+
 const Main = styled.main`
   display: flex;
   align-items: center;
@@ -40,7 +30,6 @@ class Dashboard extends React.Component {
     return (
       <Wrapper>
         <HeaderBackground>
-        <ShadeBackground/>
           <Main>
             <h2>Hey John</h2>
             <h1>Today is Monday, <Clock format={'HH:mm:ssa'} ticking={true} /> </h1>

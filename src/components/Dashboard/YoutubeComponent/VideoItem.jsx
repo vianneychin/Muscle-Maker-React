@@ -5,7 +5,6 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-  width: 32em;
   > img {
     max-width: 180px;
   }
@@ -14,15 +13,19 @@ const Span = styled.span`
   display: inline-block;
   width: 16em;
 `
+const Section = styled.section`
+      display: flex;
+    flex-direction: row-reverse;
+`
 
 const VideoItem = ({ video, onVideoSelect }) => {
   return (
-    <div>
+    <Section>
       <Span>{ video.snippet.title }</Span>
       <Wrapper onClick={ () => onVideoSelect(video) }>
         <img alt={video.snippet.title} src={video.snippet.thumbnails.medium.url} />
       </Wrapper>
-    </div>
+    </Section>
   )
 }
 
