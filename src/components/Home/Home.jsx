@@ -44,6 +44,7 @@ class Home extends React.Component {
         {
           this.state.registerModal
           ? <RegisterModal
+              handleRegister={this.props.handleRegister}
               hideRegisterModal={ this.hideRegisterModal }
             />
           : <div />
@@ -65,10 +66,11 @@ class Home extends React.Component {
           <p>and feel better</p>
 
           {/* Component */}
-          <RegisterModal />
+          <RegisterModal handleRegister={this.props.handleRegister} />
 
           {/* Component */}
-          <LoginModal  handleLogin={this.props.handleLogin}/>
+          <LoginModal  handleLogin={this.props.handleLogin} />
+
 
         </Section>
         <Buttons>
