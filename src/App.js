@@ -5,7 +5,6 @@ import React       from 'react';
 import Home        from './components/Home/Home'
 import Dashboard   from './components/Dashboard/Dashboard'
 import Workouts    from './components/Workouts/Workouts'
-import { async } from 'q';
 
 class App extends React.Component {
   componentDidMount(){
@@ -25,7 +24,6 @@ class App extends React.Component {
       console.log(response, 'from the flask server on localhost:8000')
     } catch (err) {
       console.log(err)
-      
     }
   }
   getWorkouts = async () => {
