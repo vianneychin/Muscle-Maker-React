@@ -51,6 +51,7 @@ class Home extends React.Component {
         {
           this.state.loginModal
           ? <LoginModal
+              handleLogin={this.props.handleLogin}
               hideLoginModal={ this.hideLoginModal }
             />
           : < div />
@@ -63,7 +64,7 @@ class Home extends React.Component {
           <p>look fitter,</p>
           <p>and feel better</p>
           <RegisterModal /> {/* Component */}
-          <LoginModal  />   {/* Component */}
+          <LoginModal  handleLogin={this.props.handleLogin}/>   {/* Component */}
         </Section>
         <Buttons>
           <button type="button" onClick={this.showRegisterModal}>Register</button>
