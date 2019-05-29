@@ -1,9 +1,6 @@
 import React from 'react'
-
-/* <----------- styled components -----------> */
-/* <------- end of styled components --------> */
-
 import styled from 'styled-components'
+
 /* <----------- styled components -----------> */
 const Form = styled.form`
   display: flex;

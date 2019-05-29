@@ -1,5 +1,6 @@
-import React  from 'react'
-import styled from 'styled-components'
+import React        from 'react'
+import { Redirect } from 'react-router-dom'
+import styled       from 'styled-components'
 
 /* <----------- styled components -----------> */
 const Modal = styled.div`
@@ -22,8 +23,19 @@ const Modal = styled.div`
 class LoginModal extends React.Component {
   state = {
     username:'',
-    password: ''
+    password: '',
+    redirect: false
   }
+
+  setRedirect = () => {
+    this.setState({ redirect: true })
+  }
+  redirectLoggedUser = () => {
+    if( this.state.redirect ) {
+      return <Redirect to="/dashboard" />
+    }
+  }
+
   changeHandler = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -51,7 +63,8 @@ class LoginModal extends React.Component {
             value={this.state.password}
             onChange={this.changeHandler}
           />
-          <button>Enter</button>
+          {this.redirectLoggedUser()}
+          <button onClick={this.setRedirect}>Enter</button>
         </form>
       </Modal>
     )
