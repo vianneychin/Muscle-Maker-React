@@ -1,17 +1,16 @@
-import                  './global.css';
+import                                       './global.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import * as routes from './constants/routes'
-import React       from 'react';
-import Home        from './components/Home/Home'
-import Dashboard   from './components/Dashboard/Dashboard'
-import Workouts    from './components/Workouts/Workouts'
+import * as routes                      from './constants/routes'
+import React                            from 'react';
+import Home                             from './components/Home/Home'
+import Dashboard                        from './components/Dashboard/Dashboard'
+import Workouts                         from './components/Workouts/Workouts'
 
 class App extends React.Component {
   state = {
     currentUser: null, 
     logged: false,
     exercise: []
-    
   }
 
 
@@ -23,10 +22,12 @@ class App extends React.Component {
     // })
   }
 
+
   doSetCurrentUser = user =>
   this.setState({
     currentUser: user
   })
+
 
   // doLogout = async () =>
 
@@ -35,7 +36,7 @@ class App extends React.Component {
     try {
       const registarCall = await fetch('http//localhost:8000/users/', {
         method: 'POST',
-        body: JSON.stringify(info), 
+        body: JSON.stringify(info),
         credentials: 'include',
         headers: {
           'Content_Type': 'application/json'
@@ -58,23 +59,21 @@ class App extends React.Component {
     console.log(info)
     try {
       const loginResponse = await fetch('http://localhost:8000/users/login', {
-        method: "POST",
-        credentials:'include',
-        body: JSON.stringify(info),
+        method:      'POST',
+        credentials: 'include',
+        body:         JSON.stringify(info),
         headers: {
-          'Content-Type': "application/json"
+          'Content-Type': 'application/json'
         }
       })
       const parsedData = await loginResponse.json()
       console.log(parsedData);
       if(parsedData.message === 'success'){
         this.setState({
-          logged: true,
+          logged:      true,
           currentUser: parsedData.user
-
         })
       }
-
     } catch (error) {
       console.log(error)
     }
@@ -84,13 +83,10 @@ class App extends React.Component {
       const response = await fetch('http://localhost:8000/api/v1/workouts', {
         credentials: 'include'
       })
-
       const responseParsed = await response.json()
       console.log(responseParsed, 'workouts')
-      
     } catch (err) {
       console.log(err)
-      
     }
   }
   render() {

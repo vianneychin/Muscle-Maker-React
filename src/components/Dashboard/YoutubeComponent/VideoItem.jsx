@@ -1,6 +1,7 @@
-import React from 'react'
+import React  from 'react'
 import styled from 'styled-components'
 
+/* <----------- styled components -----------> */
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
@@ -14,16 +15,22 @@ const Span = styled.span`
   width: 16em;
 `
 const Section = styled.section`
-      display: flex;
-    flex-direction: row-reverse;
+  display: flex;
+  flex-direction: row-reverse;
+/* <------- end of styled components --------> */
 `
 
 const VideoItem = ({ video, onVideoSelect }) => {
   return (
     <Section>
-      <Span>{ video.snippet.title }</Span>
-      <Wrapper onClick={ () => onVideoSelect(video) }>
-        <img alt={video.snippet.title} src={video.snippet.thumbnails.medium.url} />
+      <Span>{video.snippet.title}</Span>
+      <Wrapper
+        onClick={() => onVideoSelect(video)}
+      >
+        <img
+          alt={video.snippet.title}
+          src={video.snippet.thumbnails.medium.url}
+        />
       </Wrapper>
     </Section>
   )

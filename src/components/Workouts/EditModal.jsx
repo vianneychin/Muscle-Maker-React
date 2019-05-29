@@ -9,18 +9,17 @@ const Modal = styled.div`
 const Inputs = styled.div`
   display: flex;
   flex-direction: column;
-
   > button {
-      width: 23em;
+    width: 23em;
   }
   > :nth-child(10) {
-      width: 4em;
+    width: 4em;
   }
   > :nth-child(12) {
-      width: 4em;
+    width: 4em;
   }
 `
-/* <-----------------------------------------> */
+/* <------- end of styled components --------> */
 
 const EditModal = (props) => {
   return (
