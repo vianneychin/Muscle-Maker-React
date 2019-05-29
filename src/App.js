@@ -1,15 +1,34 @@
 import                  './global.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import * as routes from './routes/routes'
+import * as routes from './constants/routes'
 import React       from 'react';
 import Home        from './components/Home/Home'
 import Dashboard   from './components/Dashboard/Dashboard'
 import Workouts    from './components/Workouts/Workouts'
 
 class App extends React.Component {
-  componentDidMount(){
-    // this.getWorkouts()
+  state = {
+    currentUser: null, 
+    exercise: []
+    
   }
+
+
+  componentDidMount(){
+    // this.getWorkouts().then(data =>{
+    //   this.setState({
+    //     workout: data.data.results
+    //   })
+    // })
+  }
+
+  doSetCurrentUser = user =>
+  this.setState({
+    currentUser: user
+  })
+
+  // doLogout = async () =>
+
   handleRegister = async (data) =>{
     try {
       const registarCall = fetch('http//localhost:8000/users/registration', {
@@ -24,6 +43,31 @@ class App extends React.Component {
       console.log(response, 'from the flask server on localhost:8000')
     } catch (err) {
       console.log(err)
+    }
+  }
+  handleLogin = async (info)=>{
+    console.log(info)
+    try {
+      const loginResponse = await fetch('http://localhost:8000/users/login', {
+        method: "POST",
+        credentials:'include',
+        body: JSON.stringify(info),
+        headers: {
+          'Content-Type': "application/json"
+        }
+      })
+      const parsedData = await loginResponse.json()
+      console.log(parsedData);
+      if(parsedData.message = 'success'){
+        this.setState({
+          logged: true,
+          currentUser: parsedData.user
+
+        })
+      }
+
+    } catch (error) {
+      console.log(error)
     }
   }
   getWorkouts = async () => {
@@ -47,7 +91,7 @@ class App extends React.Component {
             <Switch>
               <Route
                 exact path = { routes.ROOT }
-                render     = { () => <Home /> }
+                render     = { () => <Home handleLogin={this.handleLogin}/> }
               />
               <Route
                 exact path = { routes.DASHBOARD }
