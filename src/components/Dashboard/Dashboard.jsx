@@ -20,6 +20,9 @@ const HeaderBackground = styled.div`
     h1:hover {
       color: rgb(255, 0, 0, .6);
     }
+    h4:hover {
+      color: rgb(255, 170, 200);
+    }
   }
 `
 const Main = styled.main`
@@ -52,6 +55,9 @@ class Dashboard extends React.Component {
 
             <Link to="/workouts">
               <h1>My Workouts ➞</h1>
+            </Link>
+            <Link to="/">
+              <h4>← Logout</h4>
             </Link>
           </Main>
         </HeaderBackground>
