@@ -8,9 +8,11 @@ import styled       from 'styled-components'
 /* <----------- styled components -----------> */
 const VideoContainer = styled.div`
   background-color: black;
-  float: left;
-  width: 70%;
+  width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 const VideoResults = styled.div`
   background-color: grey;

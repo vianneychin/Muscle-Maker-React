@@ -5,9 +5,11 @@ import React from 'react'
 import styled from 'styled-components'
 
 /* <----------- styled components -----------> */
-const iFrame = styled.iframe`
-  width: 853px;
-  height: 500px;
+const Container = styled.div`
+  iframe {
+    width: 853px;
+    height: 500px;
+  }
 `
 /* <------- end of styled components --------> */
 
@@ -17,13 +19,13 @@ const YouTubeVideo = ({ video }) => {
   }
   const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`
   return (
-    <div>
-      <iFrame
+    <Container>
+      <iframe
         title="a video"
         src={videoSrc}
       />
       { video.snippet.title }
-    </div>
+    </Container>
   )
 }
 export default YouTubeVideo
