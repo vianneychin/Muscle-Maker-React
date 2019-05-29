@@ -61,6 +61,7 @@ class LoginModal extends React.Component {
             onChange={this.changeHandler}
           />
           <input
+            type="password"
             name="password"
             placeholder="password"
             value={this.state.password}
