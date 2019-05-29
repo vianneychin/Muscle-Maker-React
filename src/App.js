@@ -29,18 +29,26 @@ class App extends React.Component {
 
   // doLogout = async () =>
 
-  handleRegister = async (data) =>{
+  handleRegister = async (info) =>{
+    console.log(info)
     try {
-      const registarCall = fetch('http//localhost:8000/users/registration', {
+      const registarCall = await fetch('http//localhost:8000/users/', {
         method: 'POST',
-        body: JSON.stringify(data), 
+        body: JSON.stringify(info), 
         credentials: 'include',
         headers: {
           'Content_Type': 'application/json'
         }
       })
-      const response = registarCall.json()
-      console.log(response, 'from the flask server on localhost:8000')
+      const parsedData = await registarCall.json()
+      console.log(parsedData, 'from the flask server on localhost:8000')
+      if(parsedData.message = 'success'){
+        this.setState({
+          logged: true,
+          currentUser: parsedData.user
+
+        })
+      }
     } catch (err) {
       console.log(err)
     }
@@ -91,7 +99,7 @@ class App extends React.Component {
             <Switch>
               <Route
                 exact path = { routes.ROOT }
-                render     = { () => <Home handleLogin={this.handleLogin}/> }
+                render     = { () => <Home handleLogin={this.handleLogin} handleRegister={this.handleRegister}/> }
               />
               <Route
                 exact path = { routes.DASHBOARD }

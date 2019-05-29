@@ -44,6 +44,7 @@ class Home extends React.Component {
         {
           this.state.registerModal
           ? <RegisterModal
+              handleRegister={this.props.handleRegister}
               hideRegisterModal={ this.hideRegisterModal }
             />
           : <div />
@@ -63,8 +64,8 @@ class Home extends React.Component {
           <p>get healthier,</p>
           <p>look fitter,</p>
           <p>and feel better</p>
-          <RegisterModal /> {/* Component */}
-          <LoginModal  handleLogin={this.props.handleLogin}/>   {/* Component */}
+          <RegisterModal  handleRegister={this.props.handleRegister}/> {/* Component */}
+          <LoginModal  handleLogin={this.props.handleLogin} />   {/* Component */}
         </Section>
         <Buttons>
           <button type="button" onClick={this.showRegisterModal}>Register</button>
