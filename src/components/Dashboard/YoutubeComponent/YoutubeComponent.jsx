@@ -7,15 +7,13 @@ import styled       from 'styled-components'
 
 /* <----------- styled components -----------> */
 const VideoContainer = styled.div`
-  background-color: black;
-  width: 100%;
+  width: 70%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 `
 const VideoResults = styled.div`
-  background-color: grey;
   float: left;
   width: 30%;
 `

@@ -7,8 +7,8 @@ import styled from 'styled-components'
 /* <----------- styled components -----------> */
 const Container = styled.div`
   iframe {
-    width: 853px;
-    height: 500px;
+    width: 1100px;
+    height: 620px;
   }
 `
 /* <------- end of styled components --------> */
@@ -24,7 +24,6 @@ const YouTubeVideo = ({ video }) => {
         title="a video"
         src={videoSrc}
       />
-      { video.snippet.title }
     </Container>
   )
 }
