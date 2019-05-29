@@ -25,7 +25,8 @@ class App extends React.Component {
 
   doSetCurrentUser = user =>
   this.setState({
-    currentUser: user
+    currentUser: user,
+    // logged
   })
 
 
@@ -34,23 +35,23 @@ class App extends React.Component {
   handleRegister = async (info) =>{
     console.log(info)
     try {
-      const registarCall = await fetch('http//localhost:8000/users/', {
+      const registarCall = await fetch('http://localhost:8000/users/', {
         method: 'POST',
         body: JSON.stringify(info),
         credentials: 'include',
         headers: {
-          'Content_Type': 'application/json'
+          'Content-Type': 'application/json'
         }
       })
-      const parsedData = await registarCall.json()
-      console.log(parsedData, 'from the flask server on localhost:8000')
-      if(parsedData.message = 'success'){
-        this.setState({
-          logged: true,
-          currentUser: parsedData.user
+      const response = await registarCall.json()
+      console.log(response, 'from the flask server on localhost:8000')
+      // if(parsedData.message = 'success'){
+      //   this.setState({
+      //     logged: true,
+      //     currentUser: parsedData.user
 
-        })
-      }
+      //   })
+      // }
     } catch (err) {
       console.log(err)
     }
