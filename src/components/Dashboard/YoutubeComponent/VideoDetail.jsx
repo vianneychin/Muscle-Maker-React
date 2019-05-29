@@ -2,14 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   > div {
-    > iframe {
-      width: 1280px;
-      height: 750px;
-    }
+      > iframe {
+          width: 853px;
+          height: 500px;
+      }
   }
 `
 
@@ -22,6 +19,7 @@ const VideoDetail = ({ video }) => {
     <Wrapper>
       <div>
         <iframe title="a video" src={videoSrc} />
+        { video.snippet.title }
       </div>
     </Wrapper>
   )

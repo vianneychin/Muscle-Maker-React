@@ -1,18 +1,45 @@
 import React from 'react'
+import styled from 'styled-components'
 import SearchBar from './SearchBar'
 import youtube from './api/youtube'
 import VideoList from './VideoList'
 import VideoDetail from './VideoDetail'
 
+const SearchBarAndVideo = styled.div`
+  background-color: black;
+  float: left;
+  width: 70%;
+  height: 100%;
+`
+const VideoResults = styled.div`
+  background-color: grey;
+  float: left;
+  width: 30%;
+
+`
+const MainContainer = styled.div`
+  height: 73vh;
+`
+
 class YoutubeComponent extends React.Component {
-  state = { videos: [], selectedVideo: null }
+  state = {
+    videos: [], selectedVideo: null
+  }
+
+  componentDidMount() {
+    this.onTermSubmit('working out')
+  }
+
   onTermSubmit = async (term) => {
     const response = await youtube.get('./search', {
       params: {
         q: term
       }
     })
-    this.setState({ videos: response.data.items })
+    this.setState({
+      videos: response.data.items,
+      selectedVideo: response.data.items[1]
+    })
   }
   onVideoSelect = (video) => {
     this.setState({ selectedVideo: video })
@@ -20,12 +47,15 @@ class YoutubeComponent extends React.Component {
   render() {
     return (
       <div>
-        this is the youtube Component
-        <div>
+        <MainContainer>
           <SearchBar onTermSubmit={this.onTermSubmit}/>
-          <VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videos} />
-          <VideoDetail video={ this.state.selectedVideo } />
-        </div>
+          <VideoResults className="column">
+            <VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videos} />
+          </VideoResults>
+          <SearchBarAndVideo className="column">
+            <VideoDetail video={ this.state.selectedVideo } />
+          </SearchBarAndVideo>
+        </MainContainer>
       </div>
     )
   }
