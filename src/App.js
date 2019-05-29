@@ -25,7 +25,6 @@ class App extends React.Component {
       console.log(response, 'from the flask server on localhost:8000')
     } catch (err) {
       console.log(err)
-      
     }
   }
   getWorkouts = async () => {

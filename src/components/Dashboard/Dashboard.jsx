@@ -1,5 +1,6 @@
 import React    from 'react'
 import { Link } from 'react-router-dom'
+import Clock from 'react-live-clock'
 import styled   from 'styled-components'
 import YoutubeComponent from './YoutubeComponent/YoutubeComponent'
 
@@ -40,12 +41,14 @@ const Dashboard = ( props ) => {
       <HeaderBackground>
       <ShadeBackground/>
         <Main>
-          <h2>Welcome arrick123</h2>
-          <h1>Today is Monday | 13:21:12</h1>
-          <Link to="/workouts"><h1>My Workouts</h1></Link>
+          <h2>Hey John</h2>
+          <h1>Today is Monday, <Clock format={'HH:mm:ssa'} ticking={true} /> </h1>
+          <Link to="/workouts"><h1>My Workouts ➞</h1></Link>
         </Main>
       </HeaderBackground>
+
       <YoutubeComponent />
+      
     </Wrapper>
   )
 }
