@@ -1,11 +1,12 @@
-import React from 'react'
-import styled from 'styled-components'
-import SearchBar from './SearchBar'
-import youtube from './api/youtube'
-import VideoList from './VideoList'
-import VideoDetail from './VideoDetail'
+import React        from 'react'
+import SearchBar    from './SearchBar'
+import youtube      from './api/youtube'
+import VideoList    from './VideoList'
+import YouTubeVideo from './YouTubeVideo'
+import styled       from 'styled-components'
 
-const SearchBarAndVideo = styled.div`
+/* <----------- styled components -----------> */
+const VideoContainer = styled.div`
   background-color: black;
   float: left;
   width: 70%;
@@ -15,21 +16,20 @@ const VideoResults = styled.div`
   background-color: grey;
   float: left;
   width: 30%;
-
 `
 const MainContainer = styled.div`
   height: 73vh;
 `
+/* <------- end of styled components --------> */
 
 class YoutubeComponent extends React.Component {
   state = {
-    videos: [], selectedVideo: null
+    videos: [],
+    selectedVideo: null
   }
-
   componentDidMount() {
     this.onTermSubmit('working out')
   }
-
   onTermSubmit = async (term) => {
     const response = await youtube.get('./search', {
       params: {
@@ -48,13 +48,29 @@ class YoutubeComponent extends React.Component {
     return (
       <div>
         <MainContainer>
-          <SearchBar onTermSubmit={this.onTermSubmit}/>
-          <VideoResults className="column">
-            <VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videos} />
+
+          {/* COMPONENT */}
+          <SearchBar
+            onTermSubmit={this.onTermSubmit}
+          />
+
+          <VideoResults>
+
+            {/* COMPONENT */}
+            <VideoList
+              onVideoSelect={this.onVideoSelect}
+              videos={this.state.videos}
+            />
+
           </VideoResults>
-          <SearchBarAndVideo className="column">
-            <VideoDetail video={ this.state.selectedVideo } />
-          </SearchBarAndVideo>
+          <VideoContainer>
+
+            {/* COMPONENT */}
+            <YouTubeVideo
+              video={ this.state.selectedVideo }
+            />
+
+          </VideoContainer>
         </MainContainer>
       </div>
     )

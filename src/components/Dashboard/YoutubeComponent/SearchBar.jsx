@@ -1,10 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
 
-const Wrapper = styled.div`
-  > label {
-  }
-`
+/* <----------- styled components -----------> */
+/* <------- end of styled components --------> */
+
+import styled from 'styled-components'
+/* <----------- styled components -----------> */
 const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -21,9 +21,12 @@ const Input = styled.input `
   padding: 2px 6px;
   border-radius: 2px 0 0 2px;
 `
+/* <------- end of styled components --------> */
 
 class SearchBar extends React.Component {
-  state = { term: '' }
+  state = {
+    term: ''
+  }
   onInputChange = (event) => {
     this.setState({ term: event.target.value })
   }
@@ -33,7 +36,7 @@ class SearchBar extends React.Component {
   }
   render() {
     return (
-      <Wrapper>
+      <div>
         <label>Search for workout videos on YouTube</label>
         <Form onSubmit={this.onFormSubmit}>
           <Input
@@ -43,7 +46,7 @@ class SearchBar extends React.Component {
             onChange={this.onInputChange}
           />
         </Form>
-      </Wrapper>
+      </div>
     )
   }
 }
