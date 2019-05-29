@@ -8,7 +8,8 @@ import Workouts                         from './components/Workouts/Workouts'
 
 class App extends React.Component {
   state = {
-    currentUser: null,
+    currentUser: null, 
+    logged: false,
     exercise: []
   }
 
@@ -67,7 +68,7 @@ class App extends React.Component {
       })
       const parsedData = await loginResponse.json()
       console.log(parsedData);
-      if ( parsedData.message = 'success' ) {
+      if(parsedData.message === 'success'){
         this.setState({
           logged:      true,
           currentUser: parsedData.user
