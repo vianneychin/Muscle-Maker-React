@@ -25,7 +25,7 @@ class RegisterModal extends Component {
     username:'',
     email:'',
     password:'',
-    verifyPassword:''
+    verify_password:''
   }
   changeHandler = e => {
     this.setState({
@@ -65,9 +65,9 @@ class RegisterModal extends Component {
           />
           <input
             type="password"
-            name="verifyPassword"
+            name="verify_password"
             placeholder="verify password"
-            value={this.state.verifyPassword}
+            value={this.state.verify_password}
             onChange={this.changeHandler}
           />
           <button>Enter</button>

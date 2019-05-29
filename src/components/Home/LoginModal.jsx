@@ -27,14 +27,14 @@ class LoginModal extends React.Component {
     redirect: false
   }
 
-  setRedirect = () => {
-    this.setState({ redirect: true })
-  }
-  redirectLoggedUser = () => {
-    if( this.state.redirect ) {
-      return <Redirect to="/dashboard" />
-    }
-  }
+  // setRedirect = () => {
+  //   this.setState({ redirect: true })
+  // }
+  // redirectLoggedUser = () => {
+  //   if( this.state.redirect ) {
+  //     return <Redirect to="/dashboard" />
+  //   }
+  // }
 
   changeHandler = e => {
     this.setState({
@@ -47,6 +47,9 @@ class LoginModal extends React.Component {
   }
   render() {
     return (
+      // this.state.logged
+      // ? <Redirect to='/dashboard'/>
+      // :
       <Modal>
         <button onClick={this.props.hideLoginModal}>✕</button>
         <h1>Login</h1>
@@ -63,7 +66,7 @@ class LoginModal extends React.Component {
             value={this.state.password}
             onChange={this.changeHandler}
           />
-          {this.redirectLoggedUser()}
+          {/* {this.redirectLoggedUser()} */}
           <button onClick={this.setRedirect}>Enter</button>
         </form>
       </Modal>
