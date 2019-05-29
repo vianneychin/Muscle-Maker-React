@@ -17,7 +17,7 @@ const HeaderBackground = styled.div`
 const ShadeBackground = styled.div`
   background-color: rgba(0,0,0,0.5);
   width: 100%;
-  height: 81%;
+  height: 54%;
   position: absolute;
   -webkit-transform: translate(-50%,-50%);
   -ms-transform:     translate(-50%,-50%);
@@ -35,22 +35,24 @@ const Main = styled.main`
 /* <-----------------------------------------> */
 
 
-const Dashboard = ( props ) => {
-  return (
-    <Wrapper>
-      <HeaderBackground>
-      <ShadeBackground/>
-        <Main>
-          <h2>Hey John</h2>
-          <h1>Today is Monday, <Clock format={'HH:mm:ssa'} ticking={true} /> </h1>
-          <Link to="/workouts"><h1>My Workouts ➞</h1></Link>
-        </Main>
-      </HeaderBackground>
+class Dashboard extends React.Component {
+  render() {
+    return (
+      <Wrapper>
+        <HeaderBackground>
+        <ShadeBackground/>
+          <Main>
+            <h2>Hey John</h2>
+            <h1>Today is Monday, <Clock format={'HH:mm:ssa'} ticking={true} /> </h1>
+            <Link to="/workouts"><h1>My Workouts ➞</h1></Link>
+          </Main>
+        </HeaderBackground>
 
-      <YoutubeComponent />
-      
-    </Wrapper>
-  )
+        <YoutubeComponent />
+
+      </Wrapper>
+    )
+  }
 }
 
 export default Dashboard
