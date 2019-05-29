@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+
 /* <----------- styled components -----------> */
 const Modal = styled.div`
   width: 30em;
@@ -10,16 +11,17 @@ const Inputs = styled.div`
   flex-direction: column;
 
   > button {
-      width: 23em;
+    width: 23em;
   }
   > :nth-child(11) {
-      width: 4em;
+    width: 4em;
   }
   > :nth-child(13) {
-      width: 4em;
+    width: 4em;
   }
 `
-/* <-----------------------------------------> */
+/* <------- end of styled components --------> */
+
 const AddWorkoutModal = (props) => {
   return (
     <Modal>

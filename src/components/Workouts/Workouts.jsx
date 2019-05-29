@@ -1,8 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
-import EditModal from './EditModal'
+import React           from 'react'
+import { Link }        from 'react-router-dom'
+import EditModal       from './EditModal'
 import AddWorkoutModal from './AddWorkoutModal'
+import styled          from 'styled-components'
 
 /* <----------- styled components -----------> */
 const Header = styled.div`
@@ -15,8 +15,6 @@ const UnorderedList = styled.ul`
   background-color: darkgrey;
 `
 /* <-----------------------------------------> */
-
-// TODO: on/off button for the Add a workout modal.
 
 class Workouts extends React.Component {
   state = {
@@ -40,10 +38,11 @@ class Workouts extends React.Component {
       <div>
         <Link to="/dashboard"><h3>Go back</h3></Link>
 
-        {/* Toggle a modal on or off. */}
+        {/* Toggle button for modal. */}
         <button type="button" onClick={this.showAddWorkoutModal}>Add a Workout</button>
         <button type="button" onClick={this.showEditModal}>Edit</button>
 
+        {/* Ternary to show/hide Modal */}
         {
           this.state.addWorkoutModal
           ? <AddWorkoutModal
@@ -52,6 +51,7 @@ class Workouts extends React.Component {
           : <div />
         }
 
+        {/* Ternary to show/hide Modal */}
         {
           this.state.editModal
           ? <EditModal
@@ -72,9 +72,12 @@ class Workouts extends React.Component {
           <li>100lb Squat Rack</li>
           <li>5 sets of 15 reps</li>
         </UnorderedList>
-        <EditModal /> {/* EditModal Component */}
-        <br/>
-        <AddWorkoutModal /> {/* AddWorkoutModal Component */}
+
+        {/* COMPONENT */}
+        <EditModal />
+
+        {/* COMPONENT */}
+        <AddWorkoutModal />
       </div>
     )
   }
