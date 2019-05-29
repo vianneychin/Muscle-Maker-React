@@ -1,9 +1,9 @@
 import React         from 'react'
-import styled        from 'styled-components'
 import LoginModal    from './LoginModal'
 import RegisterModal from './RegisterModal'
+import styled        from 'styled-components'
 
-//---------------styled-components-----------------
+/* <----------- styled components -----------> */
 const Title = styled.div`
   display: flex;
   justify-content: center;
@@ -19,7 +19,7 @@ const Buttons = styled.section`
   justify-content: center;
   align-items: center;
 `
-//-------------------------------------------------
+/* <------- end of styled components --------> */
 
 class Home extends React.Component {
   state = {
@@ -63,12 +63,21 @@ class Home extends React.Component {
           <p>get healthier,</p>
           <p>look fitter,</p>
           <p>and feel better</p>
-          <RegisterModal /> {/* Component */}
-          <LoginModal  handleLogin={this.props.handleLogin}/>   {/* Component */}
+
+          {/* Component */}
+          <RegisterModal />
+
+          {/* Component */}
+          <LoginModal  handleLogin={this.props.handleLogin}/>
+
         </Section>
         <Buttons>
-          <button type="button" onClick={this.showRegisterModal}>Register</button>
-          <button type="button" onClick={this.showLoginModal}>Login</button>
+          <button type="button" onClick={this.showRegisterModal}>
+            Register
+          </button>
+          <button type="button" onClick={this.showLoginModal}>
+            Login
+          </button>
         </Buttons>
       </div>
     )
