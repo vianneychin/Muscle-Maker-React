@@ -6,18 +6,34 @@ import YoutubeComponent from './YoutubeComponent/YoutubeComponent'
 
 
 /* <----------- styled components -----------> */
+
 const HeaderBackground = styled.div`
   background-image: url('https://i.imgur.com/keKDODv.jpg?1');
   background-size: cover;
   background-position: top;
   height: 26em;
+  font-family: 'Roboto', sans-serif;
+  color: rgb(245, 245, 245);
+  a {
+    text-decoration: none;
+    color: white;
+    h1:hover {
+      color: rgb(255, 0, 0, .6);
+    }
+  }
 `
 const Main = styled.main`
+  height: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
-  transform: translate(0, 10%);
   font-size: 2em;
+  background-color: rgb(0, 0, 0, 0.5);
+  h1 {
+    font-weight: 900;
+  }
+
 `
 /* <-----------------------------------------> */
 
@@ -28,10 +44,11 @@ class Dashboard extends React.Component {
       <div>
         <HeaderBackground>
           <Main>
-            <h2>Hey John</h2>
+            <h1>Hi John</h1>
 
             {/* <Clock/> is from 'react-live-clock' npm */}
-            <h1>Today is Monday, <Clock format={'HH:mm:ssa'} ticking={true} /> </h1>
+            <h2>It's Monday</h2>
+            <h3><Clock format={'HH:mm:ss'} ticking={true}/></h3>
 
             <Link to="/workouts">
               <h1>My Workouts ➞</h1>

@@ -6,12 +6,14 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 2em;
+  padding-bottom: 2em;
 `
 const Input = styled.input `
   background-color: transparent;
   font-size: 16px;
   box-shadow: none;
-  max-width: 100%;
+  width: 40%;
   line-height: 24px;
   border: 1px solid grey;
   box-shadow: inset 0 1px 2px grey;
@@ -34,7 +36,6 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div>
-        <label>Search for workout videos on YouTube</label>
         <Form onSubmit={this.onFormSubmit}>
           <Input
             placeholder="Search"
