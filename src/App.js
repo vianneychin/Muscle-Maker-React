@@ -22,13 +22,16 @@ class App extends React.Component {
     //     workout: data.data.results
     //   })
     // })
-    // const user = localStorage.getItem("current")
-    // console.log(user)
-    // if (user){
-    //   this.setState({
-    //     currentUser: user
-    //   })
-    // }
+
+    // Clay's code
+        const user = localStorage.getItem("current")
+        const parsedUser= JSON.parse(user)
+        console.log(parsedUser)
+        if (user){
+          this.setState({
+            currentUser: parsedUser
+          })
+        }
   }
 
 
@@ -79,7 +82,7 @@ class App extends React.Component {
       const parsedData = await loginResponse.json()
       console.log(parsedData);
       if(parsedData.message === 'success'){
-        // localStorage.setItem("current", parsedData.user)
+        localStorage.setItem("current", JSON.stringify(parsedData.user))
         this.setState({
           logged:      true,
           currentUser: parsedData.user,
