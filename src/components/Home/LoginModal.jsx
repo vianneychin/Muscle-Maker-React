@@ -23,6 +23,10 @@ const Modal = styled.div`
     justify-content: space-evenly;
     align-items: center;
     height: 76vh;
+    p {
+      color: dodgerblue;
+      cursor: pointer;
+    }
     button {
       position: relative;
       font-size: 2em;
@@ -128,6 +132,7 @@ class LoginModal extends Component {
               className="cancel-button"
             >
               Cancel</button>
+              <p onClick={this.props.showRegisterModal}>Don't have an account?</p>
           </div>
         </form>
       </Modal>

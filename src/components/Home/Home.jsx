@@ -80,6 +80,7 @@ const Buttons = styled.section`
       color: green;
       background-color: rgb(255, 255, 255, 0);
     }
+  }
 `
 /* <------- end of styled components --------> */
 
@@ -89,13 +90,13 @@ class Home extends React.Component {
     loginModal: false
   }
   showRegisterModal = () => {
-    this.setState({ registerModal: true })
+    this.setState({ registerModal: true, loginModal:false })
   }
   hideRegisterModal = () => {
     this.setState({ registerModal: false })
   }
   showLoginModal = () => {
-    this.setState({ loginModal: true })
+    this.setState({ loginModal: true, registerModal: false })
   }
   hideLoginModal = () => {
     this.setState({ loginModal: false })
@@ -139,6 +140,8 @@ class Home extends React.Component {
           ? <RegisterModal
               handleRegister={this.props.handleRegister}
               hideRegisterModal={ this.hideRegisterModal }
+              registerModal={ this.registerModal }
+              showLoginModal={ this.showLoginModal }
             />
           : <div />
         }
@@ -147,6 +150,7 @@ class Home extends React.Component {
           ? <LoginModal
               handleLogin={this.props.handleLogin}
               hideLoginModal={ this.hideLoginModal }
+              showRegisterModal={ this.showRegisterModal }
             />
           : < div />
         }

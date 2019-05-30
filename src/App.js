@@ -1,18 +1,17 @@
-import                                       './global.css';
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import './global.css';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import {withRouter} from 'react-router'
-import * as routes                      from './constants/routes'
-import React                            from 'react';
-import Home                             from './components/Home/Home'
-
-import Dashboard                        from './components/Dashboard/Dashboard'
-import Workouts                         from './components/Workouts/Workouts'
+import * as routes  from './constants/routes'
+import React from 'react';
+import Home  from './components/Home/Home'
+import Dashboard   from './components/Dashboard/Dashboard'
+import Workouts  from './components/Workouts/Workouts'
 
 class App extends React.Component {
   state = {
-    currentUser: {}, 
+    currentUser: {},
     logged: false,
-    exercise: []
+    workout: []
   }
 
 
@@ -22,16 +21,17 @@ class App extends React.Component {
     //     workout: data.data.results
     //   })
     // })
-
-    // Clay's code
-        const user = localStorage.getItem("current")
-        const parsedUser= JSON.parse(user)
-        console.log(parsedUser)
-        if (user){
-          this.setState({
-            currentUser: parsedUser
-          })
-        }
+    //!uncomment this later
+        // const user = localStorage.getItem("current")
+        // const parsedUser= JSON.parse(user)
+        // console.log(parsedUser)
+        // if (user){
+        //   this.setState({
+        //     currentUser: parsedUser
+        //   },()=>{
+        //     this.getWorkouts()
+        //   })
+        // }
   }
 
 
@@ -57,13 +57,6 @@ class App extends React.Component {
       })
       const response = await registarCall.json()
       console.log(response, 'from the flask server on localhost:8000')
-      // if(response.message = 'success'){
-      //   this.setState({
-      //     logged: true,
-      //     currentUser: response.user
-
-      //   })
-      // }
     } catch (err) {
       console.log(err)
     }
@@ -86,6 +79,8 @@ class App extends React.Component {
         this.setState({
           logged:      true,
           currentUser: parsedData.user,
+        },()=>{
+          this.getWorkouts()
         })
         return this.props.history.push('/dashboard')
       }
@@ -95,9 +90,10 @@ class App extends React.Component {
   }
   getWorkouts = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/v1/workouts', {
+      const response = await fetch(`http://localhost:8000/users/${this.state.currentUser.id}`, {
         credentials: 'include'
       })
+      console.log(response)
       const responseParsed = await response.json()
       console.log(responseParsed, 'workouts')
     } catch (err) {
@@ -113,20 +109,28 @@ class App extends React.Component {
   // }
 
   render() {
+    const {currentUser} = this.state
     return (
             <Switch>
               <Route
                 exact path = { routes.ROOT }
                 render     = { () => <Home handleLogin={this.handleLogin} handleRegister={this.handleRegister}/> }
               />
-              <Route
-                exact path = { routes.DASHBOARD }
-                render     = { () => <Dashboard currentUser={this.state.currentUser}/> }
-              />
-              <Route
-                exact path = { routes.WORKOUTS }
-                render     = { () => <Workouts  currentUser={this.state.currentUser} /> }
-              />
+              { currentUser
+                ? <Route
+                    exact path = { routes.DASHBOARD }
+                    render     = { () => <Dashboard currentUser={currentUser}/> }
+                  />
+                : <Redirect to = {'/'}/>
+              }
+              { currentUser
+                ?
+                  <Route
+                    exact path = { routes.WORKOUTS }
+                    render     = { () => <Workouts  currentUser={currentUser} /> }
+                  />
+                : <Redirect to = {'/'}/>
+              }
             </Switch>
     )
   }

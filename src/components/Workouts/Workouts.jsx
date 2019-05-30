@@ -82,6 +82,7 @@ class Workouts extends React.Component {
   hideEditModal = () => {
     this.setState({ editModal: false })
   }
+  
   render() {
     return (
       <Container>
@@ -99,7 +100,9 @@ class Workouts extends React.Component {
                 {/* <EditModal /> */}
                 <br />
                 {/* COMPONENT */}
-                {/* <AddWorkoutModal /> */}
+                <AddWorkoutModal />
+
+
         <Category>
           <h4>workout</h4>
           <h4>muscle</h4>
