@@ -5,14 +5,62 @@ import AddWorkoutModal from './AddWorkoutModal'
 import styled          from 'styled-components'
 
 /* <----------- styled components -----------> */
+const Container = styled.div`
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  color: white;
+`
 const Header = styled.div`
+  width: 100vw;
+  height: 30vh;
+  background-image: url('https://i.imgur.com/gzmUTcw.jpg?1');
+  background-size: cover;
+  background-position: center;
+  button {
+    font-family: Roboto;
+    font-size: 4em;
+    padding: 11px;
+    width: 8em;
+    border-radius: 10px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  a {
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    color: white;
+  }
+  div {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`
+const Category = styled.div`
   display: flex;
   justify-content: space-around;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2em;
+  padding-bottom: .5em;
+  padding-top: .5em;
 `
 const UnorderedList = styled.ul`
+  font-family: 'Montserrat', sans-serif;
   display: flex;
   justify-content: space-around;
-  background-color: darkgrey;
+  background-color: white;
+  color: black;
+  font-size: 2em;
+  list-style: none;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  font-weight: 400;
 `
 /* <-----------------------------------------> */
 
@@ -36,12 +84,59 @@ class Workouts extends React.Component {
   }
   render() {
     return (
-      <div>
-        <Link to="/dashboard"><h3>Go back</h3></Link>
-
+      <Container>
         {/* Toggle button for modal. */}
-        <button type="button" onClick={this.showAddWorkoutModal}>Add a Workout</button>
-        <button type="button" onClick={this.showEditModal}>Edit</button>
+        {/* <button type="button" onClick={this.showEditModal}>Edit</button> */}
+        <Header>
+          <div>
+            <Link to="/dashboard"><h3>Go back</h3></Link>
+            <button type="button" onClick={this.showAddWorkoutModal}>Add a workout＋</button>
+          </div>
+        </Header>
+
+                {/* COMPONENT */}
+                <EditModal />
+                <br />
+                {/* COMPONENT */}
+                <AddWorkoutModal />
+
+
+        <Category>
+          <h4>workout</h4>
+          <h4>muscle</h4>
+          <h4>equipment | weight</h4>
+          <h4>sets | reps</h4>
+        </Category>
+        <UnorderedList>
+          <li>Squats</li>
+          <li>Glutes</li>
+          <li>100lb Squat Rack</li>
+          <li>5 sets of 15 reps</li>
+        </UnorderedList>
+        <UnorderedList>
+          <li>Squats</li>
+          <li>Glutes</li>
+          <li>100lb Squat Rack</li>
+          <li>5 sets of 15 reps</li>
+        </UnorderedList>
+        <UnorderedList>
+          <li>Squats</li>
+          <li>Glutes</li>
+          <li>100lb Squat Rack</li>
+          <li>5 sets of 15 reps</li>
+        </UnorderedList>
+        <UnorderedList>
+          <li>Squats</li>
+          <li>Glutes</li>
+          <li>100lb Squat Rack</li>
+          <li>5 sets of 15 reps</li>
+        </UnorderedList>
+        <UnorderedList>
+          <li>Squats</li>
+          <li>Glutes</li>
+          <li>100lb Squat Rack</li>
+          <li>5 sets of 15 reps</li>
+        </UnorderedList>
 
         {/* Ternary to show/hide Modal */}
         {
@@ -61,25 +156,7 @@ class Workouts extends React.Component {
           : <div />
         }
 
-        <Header>
-          <h4>workout</h4>
-          <h4>muscle</h4>
-          <h4>equipment and/or weight</h4>
-          <h4>sets + reps</h4>
-        </Header>
-        <UnorderedList>
-          <li>Squats</li>
-          <li>Glutes</li>
-          <li>100lb Squat Rack</li>
-          <li>5 sets of 15 reps</li>
-        </UnorderedList>
-
-        {/* COMPONENT */}
-        <EditModal />
-
-        {/* COMPONENT */}
-        <AddWorkoutModal />
-      </div>
+      </Container>
     )
   }
 }

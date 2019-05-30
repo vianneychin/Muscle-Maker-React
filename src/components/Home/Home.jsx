@@ -4,20 +4,81 @@ import RegisterModal from './RegisterModal'
 import styled        from 'styled-components'
 
 /* <----------- styled components -----------> */
-const Title = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const Container = styled.div`
+  background-image: url('https://i.imgur.com/ZtdwQ6Z.jpg');
+  background-size: cover;
+  height:100vh;
 `
-const Section = styled.section`
+const Main = styled.div`
+  background-color: rgb(0,0,0,.8);
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  color: white;
 `
-const Buttons = styled.section`
+const Title = styled.div`
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3em;
+  letter-spacing: 26px;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+`
+const Section = styled.section`
+    font-family: 'Montserrat',sans-serif;
+    font-size: 2em;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 5%;
+    letter-spacing: 5px;
+    section {
+      display: flex;
+      width: 7.7em;
+      justify-content: space-between;
+      p:nth-child(2) {
+      }
+    }
+`
+const Buttons = styled.section`
+  width: 41em;
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  top: 14%;
+  margin-bottom: 12em;
+  .login-button {
+    background-color: rgb(255, 255, 255, 0);
+    color: orange;
+    &:hover {
+      border: 3px solid hotpink;
+      color: hotpink;
+    }
+  }
+  button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    position: relative;
+    font-size: 2.5em;
+    border: 3px solid orange;
+    background-color: orange;
+    color: white;
+    padding: .3em;
+    padding-left: .9em;
+    padding-right: .9em;
+    border-radius: 8px;
+    &:hover {
+      cursor: pointer;
+      border: 3px solid green;
+      color: green;
+      background-color: rgb(255, 255, 255, 0);
+    }
 `
 /* <------- end of styled components --------> */
 
@@ -40,7 +101,38 @@ class Home extends React.Component {
   }
   render() {
     return (
-      <div>
+      <Container>
+        <Main>
+          <Title>
+            <h1>MUSCLE MAKER</h1>
+          </Title>
+          <Section>
+            <section>
+              <p>get</p> <p>healthy</p>
+            </section>
+            <section>
+              <p>get</p> <p>active</p>
+            </section>
+            <section>
+              <p>get</p> <p>strong</p>
+            </section>
+
+            {/* Component */}
+            {/* <RegisterModal handleRegister={this.props.handleRegister} /> */}
+            {/* Component */}
+            {/* <LoginModal  handleLogin={this.props.handleLogin} /> */}
+
+
+          </Section>
+          <Buttons>
+            <button type="button" onClick={this.showRegisterModal}>
+              Register
+            </button>
+            <button className="login-button" type="button" onClick={this.showLoginModal}>
+              Login
+            </button>
+          </Buttons>
+        </Main>
         {
           this.state.registerModal
           ? <RegisterModal
@@ -57,31 +149,7 @@ class Home extends React.Component {
             />
           : < div />
         }
-        <Title>
-          <h1>MUSCLE MAKER</h1>
-        </Title>
-        <Section>
-          <p>get healthier,</p>
-          <p>look fitter,</p>
-          <p>and feel better</p>
-
-          {/* Component */}
-          <RegisterModal handleRegister={this.props.handleRegister} />
-
-          {/* Component */}
-          <LoginModal  handleLogin={this.props.handleLogin} />
-
-
-        </Section>
-        <Buttons>
-          <button type="button" onClick={this.showRegisterModal}>
-            Register
-          </button>
-          <button type="button" onClick={this.showLoginModal}>
-            Login
-          </button>
-        </Buttons>
-      </div>
+      </Container>
     )
   }
 }

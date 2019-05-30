@@ -2,21 +2,81 @@ import React, { Component }  from 'react'
 import styled from 'styled-components'
 
 /* <----------- styled components -----------> */
-const Container = styled.div`
-  background-color: dodgerblue;
-  height: 55vh;
+const Modal = styled.div`
+  position: absolute;
+  left: 31%;
+  top: 11%;
+  font-family: 'Roboto', sans-serif;
+  background-color: rgb(0, 0, 0, .96);
+  border-top: 5px solid rgb(0, 255, 0);
+  height: 85vh;
   width: 36.8em;
-
-  > form {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: grey;
-    > input {
-        width: 50%;
+  h3 {
+    margin-left: .7em;
+    color: white;
+    font-weight: 300;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* background-color: grey; */
+    height: 76vh;
+    button {
+      position: relative;
+      font-size: 3em;
+      background-color: rgb(0, 255, 0, 0.5);
+      border: 4px solid white;
+      color: white;
+      padding-left: 1em;
+      padding-right: 1em;
+      margin-top: .5em;
+      margin-bottom: .5em;
+      border-radius: 15px;
+      &:hover {
+        border: 4px solid #7FFF00;
+        color: #7FFF00;
+        cursor: pointer;
+      }
+    }
+    .cancel-button {
+      top: -2%;
+      margin-left: 20px;
+      padding: 18px;
+      font-size: 2em;
+      width: 6em;
+      background-color: rgb(0,0,0, .0);
+      &:hover {
+        border: 4px solid hotpink;
+        color: hotpink;
+      }
+    }
+  input {
+    width: 70%;
+    padding-top: 5%;
+    display: block;
+    background: 0;
+    border: 0;
+    border-bottom: 2px solid white;
+    color: #fff;
+    font-weight: 600;
+    font-size: 2em;
+    padding-bottom: 8px;
+    outline: 0;
+    text-align: center;
     }
   }
+`
+const Header = styled.header`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+  position: relative;
+  font-size: 3em;
+  top: 3%;
+  margin-top: .5em;
 `
 /* <------- end of styled components --------> */
 
@@ -38,9 +98,10 @@ class RegisterModal extends Component {
   }
   render() {
     return (
-      <Container>
-        <button onClick={this.props.hideRegisterModal}>✕</button>
-        <h1>Register</h1>
+      <Modal>
+        <Header>
+          <h3>Register</h3>
+        </Header>
         <form onSubmit={e => this.doRegisterUser(e) }>
           <input
             type="text"
@@ -48,6 +109,7 @@ class RegisterModal extends Component {
             placeholder="username"
             value={this.state.username}
             onChange={this.changeHandler}
+            autocomplete="off"
           />
           <input
             type="text"
@@ -55,6 +117,7 @@ class RegisterModal extends Component {
             placeholder="email"
             value={this.state.email}
             onChange={this.changeHandler}
+            autocomplete="off"
           />
           <input
             type="password"
@@ -62,6 +125,7 @@ class RegisterModal extends Component {
             placeholder="password"
             value={this.state.password}
             onChange={this.changeHandler}
+            autocomplete="off"
           />
           <input
             type="password"
@@ -69,10 +133,20 @@ class RegisterModal extends Component {
             placeholder="verify password"
             value={this.state.verify_password}
             onChange={this.changeHandler}
+            autocomplete="off"
           />
-          <button>Enter</button>
+
+          {/* TODO: When the user submits the form, a Login modal will appear in lieu. */}
+          <div>
+            <button>⟶</button>
+            <button
+              onClick={this.props.hideRegisterModal}
+              className="cancel-button"
+            >
+              Cancel</button>
+          </div>
         </form>
-      </Container>
+      </Modal>
     )
   }
 }
