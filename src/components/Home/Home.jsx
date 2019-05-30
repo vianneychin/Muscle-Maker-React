@@ -70,10 +70,10 @@ class Home extends React.Component {
           <p>and feel better</p>
 
           {/* Component */}
-          <RegisterModal handleRegister={this.props.handleRegister} />
+          {/* <RegisterModal handleRegister={this.props.handleRegister} /> */}
 <br/>
           {/* Component */}
-          {/* <LoginModal  handleLogin={this.props.handleLogin} /> */}
+          <LoginModal  handleLogin={this.props.handleLogin} />
 
 
         </Section>

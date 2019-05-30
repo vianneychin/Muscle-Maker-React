@@ -2,7 +2,7 @@ import React, { Component }  from 'react'
 import styled from 'styled-components'
 
 /* <----------- styled components -----------> */
-const Container = styled.div`
+const Modal = styled.div`
   font-family: 'Roboto', sans-serif;
   background-color: rgb(0, 0, 0, .9);
   border-top: 5px solid rgb(0, 255, 0);
@@ -74,18 +74,6 @@ const Header = styled.header`
   font-size: 3em;
   top: 3%;
   margin-top: .5em;
-  button {
-    position: relative;
-    left: 18%;
-    font-size: .5em;
-    background-color: rgb(0,0,0, .0);
-    color: white;
-    border: none;
-    &:hover {
-      color: red;
-      cursor: pointer;
-    }
-  }
 `
 /* <------- end of styled components --------> */
 
@@ -107,7 +95,7 @@ class RegisterModal extends Component {
   }
   render() {
     return (
-      <Container>
+      <Modal>
         <Header>
           <h3>Register</h3>
         </Header>
@@ -155,7 +143,7 @@ class RegisterModal extends Component {
               Cancel</button>
           </div>
         </form>
-      </Container>
+      </Modal>
     )
   }
 }
