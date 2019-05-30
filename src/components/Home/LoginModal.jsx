@@ -23,8 +23,7 @@ const Modal = styled.div`
 class LoginModal extends React.Component {
   state = {
     username:'',
-    password: '',
-    redirect: false
+    password: ''
   }
   changeHandler = e => {
     this.setState({
