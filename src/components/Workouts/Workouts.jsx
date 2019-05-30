@@ -89,16 +89,17 @@ class Workouts extends React.Component {
         {/* <button type="button" onClick={this.showEditModal}>Edit</button> */}
         <Header>
           <div>
+            <h1>Hi {this.props.currentUser.username}</h1><br/>
             <Link to="/dashboard"><h3>Go back</h3></Link>
             <button type="button" onClick={this.showAddWorkoutModal}>Add a workout＋</button>
           </div>
         </Header>
 
                 {/* COMPONENT */}
-                <EditModal />
+                {/* <EditModal /> */}
                 <br />
                 {/* COMPONENT */}
-                <AddWorkoutModal />
+                {/* <AddWorkoutModal /> */}
 
 
         <Category>

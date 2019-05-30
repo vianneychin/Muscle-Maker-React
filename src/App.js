@@ -125,7 +125,7 @@ class App extends React.Component {
               />
               <Route
                 exact path = { routes.WORKOUTS }
-                render     = { () => <Workouts /> }
+                render     = { () => <Workouts  currentUser={this.state.currentUser} /> }
               />
             </Switch>
     )

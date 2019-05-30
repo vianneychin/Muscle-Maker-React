@@ -1,4 +1,5 @@
 import React, { Component }  from 'react'
+// import { Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 
 /* <----------- styled components -----------> */
@@ -97,6 +98,7 @@ class RegisterModal extends Component {
     this.props.handleRegister(this.state)
   }
   render() {
+    const {username, email, password, verify_password} = this.state
     return (
       <Modal>
         <Header>
@@ -107,7 +109,7 @@ class RegisterModal extends Component {
             type="text"
             name="username"
             placeholder="username"
-            value={this.state.username}
+            value={username}
             onChange={this.changeHandler}
             autocomplete="off"
           />
@@ -115,7 +117,7 @@ class RegisterModal extends Component {
             type="text"
             name="email"
             placeholder="email"
-            value={this.state.email}
+            value={email}
             onChange={this.changeHandler}
             autocomplete="off"
           />
@@ -123,7 +125,7 @@ class RegisterModal extends Component {
             type="password"
             name="password"
             placeholder="password"
-            value={this.state.password}
+            value={password}
             onChange={this.changeHandler}
             autocomplete="off"
           />
@@ -131,14 +133,14 @@ class RegisterModal extends Component {
             type="password"
             name="verify_password"
             placeholder="verify password"
-            value={this.state.verify_password}
+            value={verify_password}
             onChange={this.changeHandler}
             autocomplete="off"
           />
 
           {/* TODO: When the user submits the form, a Login modal will appear in lieu. */}
           <div>
-            <button>⟶</button>
+            <button onClick={this.setRedirect}>⟶</button>
             <button
               onClick={this.props.hideRegisterModal}
               className="cancel-button"
