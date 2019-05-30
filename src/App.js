@@ -16,11 +16,6 @@ class App extends React.Component {
 
 
   componentDidMount(){
-    // this.getWorkouts().then(data =>{
-    //   this.setState({
-    //     workout: data.data.results
-    //   })
-    // })
         const user = localStorage.getItem("current")
         const parsedUser= JSON.parse(user)
         console.log(parsedUser)
@@ -33,15 +28,10 @@ class App extends React.Component {
         }
   }
 
-
   doSetCurrentUser = user =>
   this.setState({
     currentUser: user,
-    // logged
   })
-
-
-  // doLogout = async () =>
 
   handleRegister = async (info) =>{
     console.log(info)
@@ -87,6 +77,7 @@ class App extends React.Component {
       console.log(error)
     }
   }
+
   getWorkouts = async () => {
     try {
       const response = await fetch(`http://localhost:8000/users/${this.state.currentUser.id}`, {
@@ -99,13 +90,15 @@ class App extends React.Component {
       console.log(err)
     }
   }
-  // doLogout = async () =>{
-  //   await fetch('/users/logout')
-  //   this.setState({
-  //     currentUser: null
-  //   })
-  //   this.props.history.push(routes.LOGIN)
-  // }
+
+  doLogout =  async () =>{
+    await fetch('http://localhost:8000/users/logout')
+    this.setState({
+      currentUser: null,
+      logged: false
+    })
+    // this.props.history.push(routes.LOGIN)
+  }
 
   render() {
     const {currentUser} = this.state
@@ -115,12 +108,12 @@ class App extends React.Component {
                 exact path = { routes.ROOT }
                 render     = { () => <Home handleLogin={this.handleLogin} handleRegister={this.handleRegister}/> }
               />
-              { currentUser
-                ? <Route
-                    exact path = { routes.DASHBOARD }
-                    render     = { () => <Dashboard currentUser={currentUser}/> }
-                  />
-                : <Redirect to = {'/'}/>
+              {currentUser 
+              ? <Route
+              exact path = { routes.DASHBOARD }
+              render     = { () => <Dashboard currentUser={currentUser} doLogout={this.doLogout}/> }
+              />
+              : <Redirect to = {'/'}/>
               }
               { currentUser
                 ?

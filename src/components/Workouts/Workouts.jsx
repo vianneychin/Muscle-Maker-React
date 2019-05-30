@@ -68,7 +68,6 @@ class Workouts extends React.Component {
   state = {
     addWorkoutModal: false,
     editModal: false,
-    workouts: []
   }
   showAddWorkoutModal = () => {
     this.setState({ addWorkoutModal: true })
@@ -82,7 +81,7 @@ class Workouts extends React.Component {
   hideEditModal = () => {
     this.setState({ editModal: false })
   }
-  
+
   render() {
     return (
       <Container>
@@ -100,7 +99,7 @@ class Workouts extends React.Component {
                 {/* <EditModal /> */}
                 <br />
                 {/* COMPONENT */}
-                <AddWorkoutModal />
+                {/* <AddWorkoutModal /> */}
 
 
         <Category>
@@ -110,30 +109,7 @@ class Workouts extends React.Component {
           <h4>sets | reps</h4>
         </Category>
         <UnorderedList>
-          <li>Squats</li>
-          <li>Glutes</li>
-          <li>100lb Squat Rack</li>
-          <li>5 sets of 15 reps</li>
-        </UnorderedList>
-        <UnorderedList>
-          <li>Squats</li>
-          <li>Glutes</li>
-          <li>100lb Squat Rack</li>
-          <li>5 sets of 15 reps</li>
-        </UnorderedList>
-        <UnorderedList>
-          <li>Squats</li>
-          <li>Glutes</li>
-          <li>100lb Squat Rack</li>
-          <li>5 sets of 15 reps</li>
-        </UnorderedList>
-        <UnorderedList>
-          <li>Squats</li>
-          <li>Glutes</li>
-          <li>100lb Squat Rack</li>
-          <li>5 sets of 15 reps</li>
-        </UnorderedList>
-        <UnorderedList>
+          {/* {this.state.Workouts.map((w, i) =>)} */}
           <li>Squats</li>
           <li>Glutes</li>
           <li>100lb Squat Rack</li>
