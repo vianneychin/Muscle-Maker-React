@@ -7,7 +7,7 @@ const Modal = styled.div`
   left: 31%;
   top: 11%;
   font-family: 'Roboto', sans-serif;
-  background-color: rgb(0, 0, 0, .9);
+  background-color: rgb(20, 20, 20, .99);
   border-top: 5px solid rgb(0, 255, 0);
   height: 85vh;
   width: 36.8em;
@@ -23,14 +23,20 @@ const Modal = styled.div`
     align-items: center;
     /* background-color: grey; */
     height: 76vh;
+    div {
+      position: relative;
+      top: 6%;
+    }
     button {
       position: relative;
-      font-size: 3em;
-      background-color: rgb(0, 255, 0, 0.5);
+      top: -15%;
+      font-size: 1.5em;
+      background-color: rgb(0,255,0,0.5);
       border: 4px solid white;
       color: white;
-      padding-left: 1em;
-      padding-right: 1em;
+      padding: 11px;
+      padding-left: 1.5em;
+      padding-right: 1.5em;
       margin-top: .5em;
       margin-bottom: .5em;
       border-radius: 15px;
@@ -74,27 +80,35 @@ class AddWorkoutModal extends React.Component {
   render() {
     return (
       <Modal>
-        <div>
-          <h3>Add Workout</h3>
-        </div>
         <form onSubmit={e => this.doRegisterUser(e) }>
-          <input placeholder="workout" />
-
-          <input placeholder="muscle" />
-
-          <input placeholder="equipment" />
-
-          <input placeholder="weight" />
-
-          <input placeholder="Sets" />
-
-          <input placeholder="Reps" />
-
-          {/* TODO: When the user submits the form, a Login modal will appear in lieu. */}
+          <input
+            autocomplete="off"
+            placeholder="workout"
+          />
+          <input
+            autocomplete="off"
+            placeholder="muscle"
+          />
+          <input
+            autocomplete="off"
+            placeholder="equipment"
+          />
+          <input
+            autocomplete="off"
+            placeholder="weight"
+          />
+          <input
+            autocomplete="off"
+            placeholder="Sets"
+          />
+          <input
+            autocomplete="off"
+            placeholder="Reps"
+          />
           <div>
-            <button>Confirm</button>
+            <button>Add<br/>workout</button>
             <button
-              onClick={this.props.hideRegisterModal}
+              onClick={this.props.hideAddWorkoutModalModal}
               className="cancel-button"
             >
               Cancel</button>

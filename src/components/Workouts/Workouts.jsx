@@ -94,10 +94,10 @@ class Workouts extends React.Component {
         </Header>
 
                 {/* COMPONENT */}
-                <EditModal />
+                {/* <EditModal /> */}
                 <br />
                 {/* COMPONENT */}
-                {/* <AddWorkoutModal /> */}
+                <AddWorkoutModal />
 
 
         <Category>

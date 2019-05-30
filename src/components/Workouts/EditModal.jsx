@@ -85,12 +85,30 @@ class EditModal extends React.Component {
     return (
       <Modal>
         <form onSubmit={e => this.doRegisterUser(e) }>
-          <input placeholder="workout" />
-          <input placeholder="muscle" />
-          <input placeholder="equipment" />
-          <input placeholder="weight" />
-          <input placeholder="Sets" />
-          <input placeholder="Reps" />
+          <input
+            autocomplete="off"
+            placeholder="workout"
+          />
+          <input
+            autocomplete="off"
+            placeholder="muscle"
+          />
+          <input
+            autocomplete="off"
+            placeholder="equipment"
+          />
+          <input
+            autocomplete="off"
+            placeholder="weight"
+          />
+          <input
+            autocomplete="off"
+            placeholder="Sets"
+          />
+          <input
+            autocomplete="off"
+            placeholder="Reps"
+          />
         <div>
           <button>Confirm<br/>changes</button>
           <button
