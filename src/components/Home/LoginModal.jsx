@@ -104,7 +104,7 @@ class LoginModal extends React.Component {
         <Header>
           <h3>Login</h3>
         </Header>
-        <form onSubmit={e => this.doRegisterUser(e) }>
+        <form onSubmit={e => this.doLoginUser(e) }>
           <input
             name="username"
             placeholder="username"
@@ -122,7 +122,7 @@ class LoginModal extends React.Component {
           />
           {/* TODO: When the user submits the form, a Login modal will appear in lieu. */}
           <div>
-            <button>Login</button>
+            <button onClick={this.setRedirect}>Login</button>
             <button
               onClick={this.props.hideLoginModal}
               className="cancel-button"
@@ -131,30 +131,6 @@ class LoginModal extends React.Component {
           </div>
         </form>
       </Modal>
-      // <Modal>
-      //   {/* <button onClick={this.props.hideLoginModal}>✕</button> */}
-      //   <h1>Login</h1>
-      //   <form onSubmit={e => this.doLoginUser(e) }>
-      //     <input
-      //       name="username"
-      //       placeholder="username"
-      //       value={this.state.username}
-      //       onChange={this.changeHandler}
-      //     />
-      //     <input
-      //       type="password"
-      //       name="password"
-      //       placeholder="password"
-      //       value={this.state.password}
-      //       onChange={this.changeHandler}
-      //     />
-      //     {/* {this.redirectLoggedUser()} */}
-      //     <div>
-      //       <button onClick={this.setRedirect}>Enter</button>
-      //       <button class="cancel-button">Cancel</button>
-      //     </div>
-      //   </form>
-      // </Modal>
     )
   }
 }
