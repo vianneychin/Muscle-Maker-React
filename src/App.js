@@ -121,7 +121,7 @@ class App extends React.Component {
                 ?
                   <Route
                     exact path = { routes.WORKOUTS }
-                    render     = { () => <Workouts exercise={workout} currentUser={currentUser} /> }
+                    render     = { () => <Workouts exercise={workout} currentUser={currentUser} doLogout={this.doLogout} /> }
                   />
                 : <Redirect to = {'/'}/>
               }
