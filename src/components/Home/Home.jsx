@@ -103,22 +103,6 @@ class Home extends React.Component {
   render() {
     return (
       <Container>
-        {
-          this.state.registerModal
-          ? <RegisterModal
-              handleRegister={this.props.handleRegister}
-              hideRegisterModal={ this.hideRegisterModal }
-            />
-          : <div />
-        }
-        {
-          this.state.loginModal
-          ? <LoginModal
-              handleLogin={this.props.handleLogin}
-              hideLoginModal={ this.hideLoginModal }
-            />
-          : < div />
-        }
         <Main>
           <Title>
             <h1>MUSCLE MAKER</h1>
@@ -150,6 +134,22 @@ class Home extends React.Component {
             </button>
           </Buttons>
         </Main>
+        {
+          this.state.registerModal
+          ? <RegisterModal
+              handleRegister={this.props.handleRegister}
+              hideRegisterModal={ this.hideRegisterModal }
+            />
+          : <div />
+        }
+        {
+          this.state.loginModal
+          ? <LoginModal
+              handleLogin={this.props.handleLogin}
+              hideLoginModal={ this.hideLoginModal }
+            />
+          : < div />
+        }
       </Container>
     )
   }

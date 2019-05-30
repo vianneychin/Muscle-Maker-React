@@ -3,6 +3,9 @@ import styled from 'styled-components'
 
 /* <----------- styled components -----------> */
 const Modal = styled.div`
+  position: absolute;
+  left: 31%;
+  top: 11%;
   font-family: 'Roboto', sans-serif;
   background-color: rgb(0, 0, 0, .9);
   border-top: 5px solid rgb(0, 255, 0);
