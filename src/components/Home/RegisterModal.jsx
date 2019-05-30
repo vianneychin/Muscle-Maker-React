@@ -7,7 +7,7 @@ const Modal = styled.div`
   left: 31%;
   top: 11%;
   font-family: 'Roboto', sans-serif;
-  background-color: rgb(0, 0, 0, .9);
+  background-color: rgb(0, 0, 0, .96);
   border-top: 5px solid rgb(0, 255, 0);
   height: 85vh;
   width: 36.8em;
