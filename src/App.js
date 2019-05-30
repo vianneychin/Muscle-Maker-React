@@ -99,7 +99,6 @@ class App extends React.Component {
       currentUser: null,
       logged: false
     })
-    // this.props.history.push(routes.LOGIN)
   }
 
   render() {
