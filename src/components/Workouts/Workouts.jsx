@@ -2,6 +2,7 @@ import React           from 'react'
 import { Link }        from 'react-router-dom'
 import EditModal       from './EditModal'
 import AddWorkoutModal from './AddWorkoutModal'
+import MappedExercise  from './MappedExercise'
 import styled          from 'styled-components'
 
 /* <----------- styled components -----------> */
@@ -115,6 +116,11 @@ class Workouts extends React.Component {
           <li>100lb Squat Rack</li>
           <li>5 sets of 15 reps</li>
         </UnorderedList>
+
+
+        <MappedExercise workout={this.props.exercise} />
+
+
 
         {/* Ternary to show/hide Modal */}
         {

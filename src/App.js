@@ -14,7 +14,6 @@ class App extends React.Component {
     workout: []
   }
 
-
   componentDidMount(){
         const user = localStorage.getItem("current")
         const parsedUser= JSON.parse(user)
@@ -86,6 +85,8 @@ class App extends React.Component {
       console.log(response)
       const responseParsed = await response.json()
       console.log(responseParsed, 'workouts')
+      this.setState({workout: responseParsed})
+      console.log(this.state.workout)
     } catch (err) {
       console.log(err)
     }
@@ -101,7 +102,7 @@ class App extends React.Component {
   }
 
   render() {
-    const {currentUser} = this.state
+    const {currentUser, workout} = this.state
     return (
             <Switch>
               <Route
@@ -119,7 +120,7 @@ class App extends React.Component {
                 ?
                   <Route
                     exact path = { routes.WORKOUTS }
-                    render     = { () => <Workouts  currentUser={currentUser} /> }
+                    render     = { () => <Workouts exercise={workout} currentUser={currentUser} /> }
                   />
                 : <Redirect to = {'/'}/>
               }
