@@ -4,11 +4,13 @@ import styled from 'styled-components'
 /* <----------- styled components -----------> */
 const Modal = styled.div`
   position: absolute;
+  /* left: 31%; */
   left: 31%;
   top: 11%;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto',sans-serif;
   background-color: rgb(20, 20, 20, .99);
-  border-top: 5px solid rgb(0, 255, 0);
+  /* background-color: red; */
+  border-top: 5px solid green;
   height: 85vh;
   width: 36.8em;
   h3 {
@@ -22,27 +24,28 @@ const Modal = styled.div`
     justify-content: space-evenly;
     align-items: center;
     /* background-color: grey; */
-    height: 76vh;
+    height: 85vh;
     div {
-      position: relative;
-      top: 6%;
+      margin-top: 2em;
     }
     button {
       position: relative;
-      top: -15%;
-      font-size: 1.5em;
-      background-color: rgb(0,255,0,0.5);
-      border: 4px solid white;
+      width: 8em;
+      top: -10%;
+      font-size: 2em;
+      background-color: green;
+      border: 4px solid green;
       color: white;
-      padding: 11px;
-      padding-left: 1.5em;
-      padding-right: 1.5em;
       margin-top: .5em;
       margin-bottom: .5em;
       border-radius: 15px;
+      padding: 2px;
+      padding-left: 1em;
+      padding-right: 1em;
       &:hover {
-        border: 4px solid #7FFF00;
-        color: #7FFF00;
+        background-color: rgb(0, 0, 0, 0);
+        border: 4px solid rgb(0, 0, 0, 0);
+        color: green;
         cursor: pointer;
       }
     }
@@ -53,9 +56,11 @@ const Modal = styled.div`
       font-size: 2em;
       width: 6em;
       background-color: rgb(0,0,0, .0);
+      position: relative;
+      top: 4%;
       &:hover {
-        border: 4px solid hotpink;
-        color: hotpink;
+        border: 4px solid green;
+        color: green;
       }
     }
   input {
@@ -105,16 +110,16 @@ class AddWorkoutModal extends React.Component {
             autocomplete="off"
             placeholder="Reps"
           />
-          <div>
-            <button>Add<br/>workout</button>
-            <button
-              onClick={this.props.hideAddWorkoutModalModal}
-              className="cancel-button"
-            >
-              Cancel</button>
-          </div>
-        </form>
-      </Modal>
+        <div>
+          <button>Add<br/>workout</button>
+          <button
+            onClick={this.props.hideAddWorkoutModal}
+            className="cancel-button"
+          >
+            Cancel</button>
+        </div>
+      </form>
+    </Modal>
     )
   }
 }
