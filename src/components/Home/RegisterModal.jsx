@@ -3,16 +3,16 @@ import styled from 'styled-components'
 
 /* <----------- styled components -----------> */
 const Container = styled.div`
-  background-color: rgb(0, 0, 0, .8);
-  border-radius: 40px;
-  border: 5px solid grey;
+  font-family: 'Roboto', sans-serif;
+  background-color: rgb(0, 0, 0, .9);
+  border-top: 5px solid rgb(0, 255, 0);
   height: 85vh;
   width: 36.8em;
-  h1 {
+  h3 {
     margin-left: .7em;
     color: white;
+    font-weight: 300;
   }
-
   form {
     display: flex;
     flex-direction: column;
@@ -35,6 +35,18 @@ const Container = styled.div`
         border: 4px solid #7FFF00;
         color: #7FFF00;
         cursor: pointer;
+      }
+    }
+    .cancel-button {
+      top: -2%;
+      margin-left: 20px;
+      padding: 18px;
+      font-size: 2em;
+      width: 6em;
+      background-color: rgb(0,0,0, .0);
+      &:hover {
+        border: 4px solid hotpink;
+        color: hotpink;
       }
     }
   input {
@@ -61,10 +73,11 @@ const Header = styled.header`
   position: relative;
   font-size: 3em;
   top: 3%;
+  margin-top: .5em;
   button {
     position: relative;
-    left: 12%;
-    font-size: 1em;
+    left: 18%;
+    font-size: .5em;
     background-color: rgb(0,0,0, .0);
     color: white;
     border: none;
@@ -96,8 +109,7 @@ class RegisterModal extends Component {
     return (
       <Container>
         <Header>
-          <h1>Register</h1>
-          <button onClick={this.props.hideRegisterModal}>✕</button>
+          <h3>Register</h3>
         </Header>
         <form onSubmit={e => this.doRegisterUser(e) }>
           <input
@@ -106,6 +118,7 @@ class RegisterModal extends Component {
             placeholder="username"
             value={this.state.username}
             onChange={this.changeHandler}
+            autocomplete="off"
           />
           <input
             type="text"
@@ -113,6 +126,7 @@ class RegisterModal extends Component {
             placeholder="email"
             value={this.state.email}
             onChange={this.changeHandler}
+            autocomplete="off"
           />
           <input
             type="password"
@@ -120,6 +134,7 @@ class RegisterModal extends Component {
             placeholder="password"
             value={this.state.password}
             onChange={this.changeHandler}
+            autocomplete="off"
           />
           <input
             type="password"
@@ -127,10 +142,18 @@ class RegisterModal extends Component {
             placeholder="verify password"
             value={this.state.verify_password}
             onChange={this.changeHandler}
+            autocomplete="off"
           />
 
           {/* TODO: When the user submits the form, a Login modal will appear in lieu. */}
-          <button>⟶</button>
+          <div>
+            <button>⟶</button>
+            <button
+              onClick={this.props.hideRegisterModal}
+              className="cancel-button"
+            >
+              Cancel</button>
+          </div>
         </form>
       </Container>
     )
