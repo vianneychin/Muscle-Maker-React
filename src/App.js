@@ -21,17 +21,16 @@ class App extends React.Component {
     //     workout: data.data.results
     //   })
     // })
-    //!uncomment this later
-        // const user = localStorage.getItem("current")
-        // const parsedUser= JSON.parse(user)
-        // console.log(parsedUser)
-        // if (user){
-        //   this.setState({
-        //     currentUser: parsedUser
-        //   },()=>{
-        //     this.getWorkouts()
-        //   })
-        // }
+        const user = localStorage.getItem("current")
+        const parsedUser= JSON.parse(user)
+        console.log(parsedUser)
+        if (user){
+          this.setState({
+            currentUser: parsedUser
+          },()=>{
+            this.getWorkouts()
+          })
+        }
   }
 
 
