@@ -94,6 +94,7 @@ class App extends React.Component {
 
   doLogout =  async () =>{
     await fetch('http://localhost:8000/users/logout')
+    localStorage.clear()
     this.setState({
       currentUser: null,
       logged: false

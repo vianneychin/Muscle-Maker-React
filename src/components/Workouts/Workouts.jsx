@@ -111,14 +111,11 @@ class Workouts extends React.Component {
         </Category>
         <UnorderedList>
           {/* {this.state.Workouts.map((w, i) =>)} */}
-          <li>Squats</li>
-          <li>Glutes</li>
-          <li>100lb Squat Rack</li>
-          <li>5 sets of 15 reps</li>
-        </UnorderedList>
-
 
         <MappedExercise workout={this.props.exercise} />
+
+        </UnorderedList>
+
 
 
 
