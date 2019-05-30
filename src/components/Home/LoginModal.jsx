@@ -1,5 +1,5 @@
-import React        from 'react'
-import { Redirect } from 'react-router-dom'
+import React, {Component}  from 'react'
+// import { Redirect } from 'react-router-dom'
 import styled       from 'styled-components'
 
 /* <----------- styled components -----------> */
@@ -84,7 +84,7 @@ const Header = styled.header`
 `
 /* <------- end of styled components --------> */
 
-class LoginModal extends React.Component {
+class LoginModal extends Component {
   state = {
     username:'',
     password: ''
@@ -99,6 +99,7 @@ class LoginModal extends React.Component {
     this.props.handleLogin(this.state)
   }
   render() {
+    const {username, password} = this.state
     return (
       <Modal>
         <Header>
@@ -109,7 +110,7 @@ class LoginModal extends React.Component {
             name="username"
             placeholder="username"
             autocomplete="off"
-            value={this.state.username}
+            value={username}
             onChange={this.changeHandler}
           />
           <input
@@ -117,7 +118,7 @@ class LoginModal extends React.Component {
             name="password"
             autocomplete="off"
             placeholder="password"
-            value={this.state.password}
+            value={password}
             onChange={this.changeHandler}
           />
           {/* TODO: When the user submits the form, a Login modal will appear in lieu. */}
