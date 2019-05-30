@@ -24,6 +24,11 @@ const Modal = styled.div`
     align-items: center;
     /* background-color: grey; */
     height: 76vh;
+    p {
+      color: red;
+      cursor: pointer;
+      
+    }
     button {
       position: relative;
       font-size: 3em;
@@ -88,15 +93,27 @@ class RegisterModal extends Component {
     password:'',
     verify_password:''
   }
+  
   changeHandler = e => {
     this.setState({
       [e.target.name]: e.target.value
     })
   }
+
   doRegisterUser = e => {
     e.preventDefault()
+    this.props.hideRegisterModal()
+    this.props.showLoginModal()
     this.props.handleRegister(this.state)
   }
+
+
+  closeRegisterModalOnSubmit = e => {
+    this.setState({
+      registerModal: false
+    })
+  }
+
   render() {
     const {username, email, password, verify_password} = this.state
     return (
@@ -106,46 +123,47 @@ class RegisterModal extends Component {
         </Header>
         <form onSubmit={e => this.doRegisterUser(e) }>
           <input
+            value={username}
+            onChange={this.changeHandler}
             type="text"
             name="username"
             placeholder="username"
-            value={username}
-            onChange={this.changeHandler}
             autocomplete="off"
-          />
+            />
           <input
+            value={email}
+            onChange={this.changeHandler}
             type="text"
             name="email"
             placeholder="email"
-            value={email}
-            onChange={this.changeHandler}
             autocomplete="off"
           />
           <input
+            value={password}
+            onChange={this.changeHandler}
             type="password"
             name="password"
             placeholder="password"
-            value={password}
-            onChange={this.changeHandler}
             autocomplete="off"
           />
           <input
+            value={verify_password}
+            onChange={this.changeHandler}
             type="password"
             name="verify_password"
             placeholder="verify password"
-            value={verify_password}
-            onChange={this.changeHandler}
             autocomplete="off"
           />
 
           {/* TODO: When the user submits the form, a Login modal will appear in lieu. */}
           <div>
-            <button onClick={this.setRedirect}>⟶</button>
+            <button onClick={this.doRegisterUser}> ⟶ </button>
             <button
               onClick={this.props.hideRegisterModal}
-              className="cancel-button"
-            >
-              Cancel</button>
+              className="cancel-button">
+              Cancel
+            </button>
+            <p onClick={this.props.showLoginModal}>Already have an account?</p>
           </div>
         </form>
       </Modal>

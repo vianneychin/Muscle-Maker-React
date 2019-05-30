@@ -1,16 +1,15 @@
-import                                       './global.css';
+import './global.css';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import {withRouter} from 'react-router'
-import * as routes                      from './constants/routes'
-import React                            from 'react';
-import Home                             from './components/Home/Home'
-
-import Dashboard                        from './components/Dashboard/Dashboard'
-import Workouts                         from './components/Workouts/Workouts'
+import * as routes  from './constants/routes'
+import React from 'react';
+import Home  from './components/Home/Home'
+import Dashboard   from './components/Dashboard/Dashboard'
+import Workouts  from './components/Workouts/Workouts'
 
 class App extends React.Component {
   state = {
-    currentUser: {}, 
+    currentUser: {},
     logged: false,
     workout: []
   }
@@ -102,7 +101,7 @@ class App extends React.Component {
   }
 
   render() {
-    const {currentUser} = this.state 
+    const {currentUser} = this.state
     return (
             <Switch>
               <Route
@@ -116,14 +115,13 @@ class App extends React.Component {
               />
               : <Redirect to = {'/'}/>
               }
-              {currentUser
-              ?
-              <Route
-
-                exact path = { routes.WORKOUTS }
-                render     = { () => <Workouts  currentUser={currentUser} /> }
-              />
-              : <Redirect to = {'/'}/>
+              { currentUser
+                ?
+                  <Route
+                    exact path = { routes.WORKOUTS }
+                    render     = { () => <Workouts  currentUser={currentUser} /> }
+                  />
+                : <Redirect to = {'/'}/>
               }
             </Switch>
     )
