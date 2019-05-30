@@ -52,7 +52,7 @@ class Dashboard extends React.Component {
       <div>
         <HeaderBackground>
           <Main>
-            <h1>Hi John</h1>
+            <h1>Hi {this.props.currentUser.username}</h1>
 
             {/* <Clock/> is from 'react-live-clock' npm */}
             <h2 className="smaller">It's Monday</h2>
@@ -68,7 +68,7 @@ class Dashboard extends React.Component {
         </HeaderBackground>
 
         {/* COMPONENT */}
-        <YoutubeComponent />
+        {/* <YoutubeComponent /> */}
 
       </div>
     )

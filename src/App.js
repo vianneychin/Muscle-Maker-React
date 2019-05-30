@@ -10,7 +10,7 @@ import Workouts                         from './components/Workouts/Workouts'
 
 class App extends React.Component {
   state = {
-    currentUser: null, 
+    currentUser: {}, 
     logged: false,
     exercise: []
   }
@@ -22,6 +22,13 @@ class App extends React.Component {
     //     workout: data.data.results
     //   })
     // })
+    // const user = localStorage.getItem("current")
+    // console.log(user)
+    // if (user){
+    //   this.setState({
+    //     currentUser: user
+    //   })
+    // }
   }
 
 
@@ -72,6 +79,7 @@ class App extends React.Component {
       const parsedData = await loginResponse.json()
       console.log(parsedData);
       if(parsedData.message === 'success'){
+        // localStorage.setItem("current", parsedData.user)
         this.setState({
           logged:      true,
           currentUser: parsedData.user,
@@ -110,7 +118,7 @@ class App extends React.Component {
               />
               <Route
                 exact path = { routes.DASHBOARD }
-                render     = { () => <Dashboard /> }
+                render     = { () => <Dashboard currentUser={this.state.currentUser}/> }
               />
               <Route
                 exact path = { routes.WORKOUTS }
