@@ -20,8 +20,11 @@ const HeaderBackground = styled.div`
     h1:hover {
       color: rgb(255, 0, 0, .6);
     }
+    h1 {
+      font-weight: ${props => props.lighter ? 300 : 400};
+    }
     h4:hover {
-      color: rgb(255, 170, 200);
+      color: hotpink;
     }
   }
 `
@@ -36,7 +39,9 @@ const Main = styled.main`
   h1 {
     font-weight: 900;
   }
-
+  .smaller {
+    font-weight: 300;
+  }
 `
 /* <-----------------------------------------> */
 
@@ -50,14 +55,14 @@ class Dashboard extends React.Component {
             <h1>Hi John</h1>
 
             {/* <Clock/> is from 'react-live-clock' npm */}
-            <h2>It's Monday</h2>
-            <h3><Clock format={'HH:mm:ss'} ticking={true}/></h3>
+            <h2 className="smaller">It's Monday</h2>
+            <h3><Clock className="smaller" format={'HH:mm:ss'} ticking={true}/></h3>
 
             <Link to="/workouts">
               <h1>My Workouts ➞</h1>
             </Link>
             <Link to="/">
-              <h4>← Logout</h4>
+              <h4 className="smaller">← Logout</h4>
             </Link>
           </Main>
         </HeaderBackground>

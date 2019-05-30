@@ -3,18 +3,74 @@ import styled from 'styled-components'
 
 /* <----------- styled components -----------> */
 const Container = styled.div`
-  background-color: dodgerblue;
-  height: 55vh;
+  background-color: rgb(0, 0, 0, .8);
+  border-radius: 40px;
+  border: 5px solid grey;
+  height: 85vh;
   width: 36.8em;
+  h1 {
+    margin-left: .7em;
+    color: white;
+  }
 
-  > form {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: grey;
-    > input {
-        width: 50%;
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* background-color: grey; */
+    height: 76vh;
+    button {
+      position: relative;
+      font-size: 3em;
+      background-color: rgb(0, 255, 0, 0.5);
+      border: 4px solid white;
+      color: white;
+      padding-left: 1em;
+      padding-right: 1em;
+      margin-top: .5em;
+      margin-bottom: .5em;
+      border-radius: 15px;
+      &:hover {
+        border: 4px solid #7FFF00;
+        color: #7FFF00;
+        cursor: pointer;
+      }
+    }
+  input {
+    width: 70%;
+    padding-top: 5%;
+    display: block;
+    background: 0;
+    border: 0;
+    border-bottom: 2px solid white;
+    color: #fff;
+    font-weight: 600;
+    font-size: 2em;
+    padding-bottom: 8px;
+    outline: 0;
+    text-align: center;
+    }
+  }
+`
+const Header = styled.header`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+  position: relative;
+  font-size: 3em;
+  top: 3%;
+  button {
+    position: relative;
+    left: 12%;
+    font-size: 1em;
+    background-color: rgb(0,0,0, .0);
+    color: white;
+    border: none;
+    &:hover {
+      color: red;
+      cursor: pointer;
     }
   }
 `
@@ -39,8 +95,10 @@ class RegisterModal extends Component {
   render() {
     return (
       <Container>
-        <button onClick={this.props.hideRegisterModal}>✕</button>
-        <h1>Register</h1>
+        <Header>
+          <h1>Register</h1>
+          <button onClick={this.props.hideRegisterModal}>✕</button>
+        </Header>
         <form onSubmit={e => this.doRegisterUser(e) }>
           <input
             type="text"
@@ -70,7 +128,9 @@ class RegisterModal extends Component {
             value={this.state.verify_password}
             onChange={this.changeHandler}
           />
-          <button>Enter</button>
+
+          {/* TODO: When the user submits the form, a Login modal will appear in lieu. */}
+          <button>⟶</button>
         </form>
       </Container>
     )

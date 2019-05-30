@@ -4,6 +4,10 @@ import RegisterModal from './RegisterModal'
 import styled        from 'styled-components'
 
 /* <----------- styled components -----------> */
+const Container = styled.div`
+  background-image: url('https://i.imgur.com/ZtdwQ6Z.jpg');
+  background-size: cover;
+`
 const Title = styled.div`
   display: flex;
   justify-content: center;
@@ -40,7 +44,7 @@ class Home extends React.Component {
   }
   render() {
     return (
-      <div>
+      <Container>
         {
           this.state.registerModal
           ? <RegisterModal
@@ -67,9 +71,9 @@ class Home extends React.Component {
 
           {/* Component */}
           <RegisterModal handleRegister={this.props.handleRegister} />
-
+<br/>
           {/* Component */}
-          <LoginModal  handleLogin={this.props.handleLogin} />
+          {/* <LoginModal  handleLogin={this.props.handleLogin} /> */}
 
 
         </Section>
@@ -81,7 +85,7 @@ class Home extends React.Component {
             Login
           </button>
         </Buttons>
-      </div>
+      </Container>
     )
   }
 }
