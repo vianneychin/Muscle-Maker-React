@@ -41,8 +41,9 @@ const Section = styled.section`
     section {
       display: flex;
       width: 7.7em;
-      justify-content: space-between;
-      p:nth-child(2) {
+      justify-content: start;
+      p:nth-child(1) {
+        margin-right: .5em;
       }
     }
 `

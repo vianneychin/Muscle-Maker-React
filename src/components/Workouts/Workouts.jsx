@@ -100,8 +100,6 @@ class Workouts extends React.Component {
                 <br />
                 {/* COMPONENT */}
                 {/* <AddWorkoutModal /> */}
-
-
         <Category>
           <h4>workout</h4>
           <h4>muscle</h4>
