@@ -1,8 +1,10 @@
 import                                       './global.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import {withRouter} from 'react-router'
 import * as routes                      from './constants/routes'
 import React                            from 'react';
 import Home                             from './components/Home/Home'
+
 import Dashboard                        from './components/Dashboard/Dashboard'
 import Workouts                         from './components/Workouts/Workouts'
 
@@ -45,10 +47,10 @@ class App extends React.Component {
       })
       const response = await registarCall.json()
       console.log(response, 'from the flask server on localhost:8000')
-      // if(parsedData.message = 'success'){
+      // if(response.message = 'success'){
       //   this.setState({
       //     logged: true,
-      //     currentUser: parsedData.user
+      //     currentUser: response.user
 
       //   })
       // }
@@ -72,8 +74,9 @@ class App extends React.Component {
       if(parsedData.message === 'success'){
         this.setState({
           logged:      true,
-          currentUser: parsedData.user
+          currentUser: parsedData.user,
         })
+        return this.props.history.push('/dashboard')
       }
     } catch (error) {
       console.log(error)
@@ -90,10 +93,16 @@ class App extends React.Component {
       console.log(err)
     }
   }
+  // doLogout = async () =>{
+  //   await fetch('/users/logout')
+  //   this.setState({
+  //     currentUser: null
+  //   })
+  //   this.props.history.push(routes.LOGIN)
+  // }
+
   render() {
     return (
-      <div>
-          <BrowserRouter>
             <Switch>
               <Route
                 exact path = { routes.ROOT }
@@ -108,10 +117,8 @@ class App extends React.Component {
                 render     = { () => <Workouts /> }
               />
             </Switch>
-          </BrowserRouter>
-      </div>
     )
   }
 }
 
-export default App
+export default withRouter(App)

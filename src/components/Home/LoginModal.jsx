@@ -87,19 +87,8 @@ const Header = styled.header`
 class LoginModal extends React.Component {
   state = {
     username:'',
-    password: '',
-    redirect: false
+    password: ''
   }
-
-  // setRedirect = () => {
-  //   this.setState({ redirect: true })
-  // }
-  // redirectLoggedUser = () => {
-  //   if( this.state.redirect ) {
-  //     return <Redirect to="/dashboard" />
-  //   }
-  // }
-
   changeHandler = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -111,9 +100,6 @@ class LoginModal extends React.Component {
   }
   render() {
     return (
-      // this.state.logged
-      // ? <Redirect to='/dashboard'/>
-      // :
       <Modal>
         <Header>
           <h3>Login</h3>
@@ -134,7 +120,6 @@ class LoginModal extends React.Component {
             value={this.state.password}
             onChange={this.changeHandler}
           />
-
           {/* TODO: When the user submits the form, a Login modal will appear in lieu. */}
           <div>
             <button>Login</button>

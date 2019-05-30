@@ -67,7 +67,8 @@ const UnorderedList = styled.ul`
 class Workouts extends React.Component {
   state = {
     addWorkoutModal: false,
-    editModal: false
+    editModal: false,
+    workouts: []
   }
   showAddWorkoutModal = () => {
     this.setState({ addWorkoutModal: true })
