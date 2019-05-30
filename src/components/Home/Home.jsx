@@ -54,12 +54,12 @@ const Buttons = styled.section`
   top: 14%;
   margin-bottom: 12em;
   .login-button {
-    background-color: rgb(255, 255, 255, .9);
+    background-color: rgb(255, 255, 255, .85);
     color: orange;
     &:hover {
       border: 3px solid hotpink;
       color: hotpink;
-      background-color: rgb(255, 255, 255, .9);
+      background-color: rgb(255, 255, 255, .85);
     }
   }
   button {
@@ -78,7 +78,7 @@ const Buttons = styled.section`
       cursor: pointer;
       border: 3px solid green;
       color: green;
-      background-color: rgb(255, 255, 255, .9);
+      background-color: rgb(255, 255, 255, .85);
     }
 `
 /* <------- end of styled components --------> */

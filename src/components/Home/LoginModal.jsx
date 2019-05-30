@@ -9,7 +9,7 @@ const Modal = styled.div`
   top: 11%;
   font-family: 'Roboto', sans-serif;
   background-color: rgb(0, 0, 0, .9);
-  border-top: 5px solid rgb(0, 255, 0);
+  border-top: 5px solid hotpink;
   height: 85vh;
   width: 36.8em;
   h3 {
@@ -29,7 +29,7 @@ const Modal = styled.div`
       font-size: 2em;
       padding: 18px;
       width: 6em;
-      background-color: rgb(0, 255, 0, 0.5);
+      background-color: hotpink;
       border: 4px solid white;
       color: white;
       padding-left: 1em;
@@ -38,8 +38,9 @@ const Modal = styled.div`
       margin-bottom: .5em;
       border-radius: 15px;
       &:hover {
-        border: 4px solid #7FFF00;
-        color: #7FFF00;
+        border: 4px solid hotpink;
+        color: hotpink;
+        background-color: rgb(0, 0, 0, 0.5);
         cursor: pointer;
       }
     }
