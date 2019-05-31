@@ -9,7 +9,7 @@ const Modal = styled.div`
   top: 11%;
   font-family: 'Roboto', sans-serif;
   background-color: rgb(0, 0, 0, .96);
-  border-top: 5px solid hotpink;
+  border-top: 5px solid orange;
   height: 85vh;
   width: 36.8em;
   h3 {
@@ -24,25 +24,23 @@ const Modal = styled.div`
     align-items: center;
     height: 76vh;
     p {
-      color: dodgerblue;
+      color: white;
+      text-decoration: underline;
+      text-align: center;
       cursor: pointer;
     }
     button {
       position: relative;
-      font-size: 2em;
-      padding: 18px;
-      width: 6em;
-      background-color: hotpink;
-      border: 4px solid white;
+      background-color: orange;
+      border: 4px solid orange;
       color: white;
       padding-left: 1em;
       padding-right: 1em;
       margin-top: .5em;
       margin-bottom: .5em;
-      border-radius: 15px;
       &:hover {
-        border: 4px solid hotpink;
-        color: hotpink;
+        border: 4px solid orange;
+        color: orange;
         background-color: rgb(0, 0, 0, 0.5);
         cursor: pointer;
       }
@@ -50,14 +48,18 @@ const Modal = styled.div`
     .cancel-button {
       top: -2%;
       margin-left: 20px;
-      padding: 18px;
-      font-size: 2em;
-      width: 6em;
       background-color: rgb(0,0,0, .0);
       &:hover {
-        border: 4px solid hotpink;
-        color: hotpink;
+        border: 4px solid orange;
+        background-color: orange;
+        color: white;
       }
+    }
+    .button {
+      font-size: 2em;
+      height: 2.5em;
+      width: 5em;
+      margin-bottom: .5em;
     }
   input {
     width: 70%;
@@ -126,10 +128,10 @@ class LoginModal extends Component {
           />
           {/* TODO: When the user submits the form, a Login modal will appear in lieu. */}
           <div>
-            <button onClick={this.setRedirect}>Login</button>
+            <button className="button" onClick={this.setRedirect}>Login</button>
             <button
               onClick={this.props.hideLoginModal}
-              className="cancel-button"
+              className="cancel-button button"
             >
               Cancel</button>
               <p onClick={this.props.showRegisterModal}>Don't have an account?</p>
