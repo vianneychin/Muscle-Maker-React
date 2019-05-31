@@ -6,7 +6,6 @@
 <img src="https://i.imgur.com/eoZQY5f.png">
 <img src="https://i.imgur.com/ABlcRo7.png">
 <img src="https://i.imgur.com/yF2oszM.png">
-<img src="https://i.imgur.com/COurHJ0.jpg">
 <img src="https://i.imgur.com/FY4SqRU.png">
 <img src="https://i.imgur.com/zxl7iob.png">
 
