@@ -17,25 +17,17 @@ class App extends React.Component {
   componentDidMount(){
         const user = localStorage.getItem("current")
         const parsedUser= JSON.parse(user)
-        console.log(parsedUser)
-        if (user){
-          this.setState({
-            currentUser: parsedUser
-          },()=>{
-            this.getWorkouts()
-          })
+        if(user) {
+          this.setState({ currentUser: parsedUser },
+            () => { this.getWorkouts() })
         }
   }
 
-  doSetCurrentUser = user =>
-  this.setState({
-    currentUser: user,
-  })
+  doSetCurrentUser = (user) => this.setState({ currentUser: user })
 
   handleRegister = async (info) =>{
-    console.log(info)
     try {
-      const registarCall = await fetch('http://localhost:8000/users/', {
+      const registerCall = await fetch('http://localhost:8000/users/', {
         method: 'POST',
         body: JSON.stringify(info),
         credentials: 'include',
@@ -43,7 +35,7 @@ class App extends React.Component {
           'Content-Type': 'application/json'
         }
       })
-      const response = await registarCall.json()
+      const response = await registerCall.json()
       console.log(response, 'from the flask server on localhost:8000')
     } catch (err) {
       console.log(err)
