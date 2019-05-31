@@ -78,7 +78,6 @@ class Workouts extends React.Component {
   render() {
     return (
       <Container>
-        {/* Toggle button for modal. */}
         <Header>
           <div>
             <h1>Hi {this.props.currentUser.username}</h1><br/>
@@ -89,26 +88,13 @@ class Workouts extends React.Component {
             <button type="button" onClick={this.showAddWorkoutModal}>Add a workout＋</button>
           </div>
         </Header>
-
-                {/* COMPONENT */}
-                {/* <EditModal /> */}
-                <br />
-                {/* COMPONENT */}
-                {/* <AddWorkoutModal /> */}
-
-
         <Category>
           <h4>workout</h4>
           <h4>muscle</h4>
           <h4>equipment | weight</h4>
           <h4>sets | reps</h4>
         </Category>
-
-
-          <MappedExercise workout={this.props.exercise} />
-
-
-        {/* Ternary to show/hide Modal */}
+        <MappedExercise workout={this.props.exercise} />
         {
           this.state.addWorkoutModal
           ? <AddWorkoutModal
@@ -117,8 +103,6 @@ class Workouts extends React.Component {
             />
           : <div />
         }
-
-        {/* Ternary to show/hide Modal */}
         {
           this.state.editModal
           ? <EditModal
@@ -127,7 +111,6 @@ class Workouts extends React.Component {
             />
           : <div />
         }
-
       </Container>
     )
   }

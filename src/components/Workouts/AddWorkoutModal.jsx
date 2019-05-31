@@ -4,12 +4,10 @@ import styled from 'styled-components'
 /* <----------- styled components -----------> */
 const Modal = styled.div`
   position: absolute;
-  /* left: 31%; */
   left: 31%;
   top: 11%;
   font-family: 'Roboto',sans-serif;
   background-color: rgb(20, 20, 20, .99);
-  /* background-color: red; */
   border-top: 5px solid green;
   height: 85vh;
   width: 36.8em;
@@ -23,7 +21,6 @@ const Modal = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    /* background-color: grey; */
     height: 85vh;
     div {
       margin-top: 2em;
@@ -116,7 +113,6 @@ class AddWorkoutModal extends React.Component {
   deleteWorkout(){
 
   }
-
   render() {
     return (
       <Modal>

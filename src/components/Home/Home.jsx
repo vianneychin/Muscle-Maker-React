@@ -117,13 +117,6 @@ class Home extends React.Component {
             <section>
               <p>live</p> <p>strong</p>
             </section>
-
-            {/* Component */}
-            {/* <RegisterModal handleRegister={this.props.handleRegister} /> */}
-            {/* Component */}
-            {/* <LoginModal  handleLogin={this.props.handleLogin} /> */}
-
-
           </Section>
           <Buttons>
             <button type="button" onClick={this.showRegisterModal}>

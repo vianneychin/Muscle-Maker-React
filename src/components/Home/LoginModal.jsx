@@ -1,6 +1,5 @@
 import React, {Component}  from 'react'
-// import { Redirect } from 'react-router-dom'
-import styled       from 'styled-components'
+import styled from 'styled-components'
 
 /* <----------- styled components -----------> */
 const Modal = styled.div`
@@ -81,7 +80,6 @@ const Header = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: red; */
   position: relative;
   font-size: 3em;
   top: 3%;
@@ -104,13 +102,13 @@ class LoginModal extends Component {
     this.props.handleLogin(this.state)
   }
   render() {
-    const {username, password} = this.state
+    const { username, password } = this.state
     return (
       <Modal>
         <Header>
           <h3>Login</h3>
         </Header>
-        <form onSubmit={e => this.doLoginUser(e) }>
+        <form onSubmit={ e => this.doLoginUser(e) }>
           <input
             name="username"
             placeholder="username"
@@ -126,15 +124,16 @@ class LoginModal extends Component {
             value={password}
             onChange={this.changeHandler}
           />
-          {/* TODO: When the user submits the form, a Login modal will appear in lieu. */}
           <div>
-            <button className="button" onClick={this.setRedirect}>Login</button>
-            <button
-              onClick={this.props.hideLoginModal}
-              className="cancel-button button"
-            >
-              Cancel</button>
-              <p onClick={this.props.showRegisterModal}>Don't have an account?</p>
+            <button className="button" onClick={this.setRedirect}>
+              Login
+            </button>
+            <button onClick={this.props.hideLoginModal} className="cancel-button button">
+              Cancel
+            </button>
+            <p onClick={this.props.showRegisterModal}>
+              Don't have an account?
+            </p>
           </div>
         </form>
       </Modal>
