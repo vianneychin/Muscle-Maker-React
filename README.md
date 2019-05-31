@@ -31,4 +31,7 @@
   <li>GitHub</li>
   <li>Postman API</li>
 </ul>
-<h2>Next steps</h2>
+<h2>Next steps:</h2>
+<ul>
+  <li>Responsive Design</li>
+</ul>
