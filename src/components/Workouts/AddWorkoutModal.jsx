@@ -86,7 +86,8 @@ class AddWorkoutModal extends React.Component {
     weight: '',
     sets: '',
     reps: '',
-    created_by: null
+    created_by: null,
+    workout: {}
   }
   componentDidMount(){
     this.setState({ created_by: this.props.currentUser.id })
@@ -104,6 +105,13 @@ class AddWorkoutModal extends React.Component {
         'Content-Type' : 'application/json'
       }
     })
+    this.setState({
+      workout: createdWorkOut
+    })
+  }
+
+  deleteWorkout(){
+
   }
   render() {
     return (

@@ -107,6 +107,7 @@ class Workouts extends React.Component {
           this.state.editModal
           ? <EditModal
               hideEditModal={this.hideEditModal}
+              currentUser={this.props.currentUser}
             />
           : <div />
         }
