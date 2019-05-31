@@ -9,7 +9,7 @@ const Modal = styled.div`
   top: 11%;
   font-family: 'Roboto', sans-serif;
   background-color: rgb(0, 0, 0, .96);
-  border-top: 5px solid rgb(0, 255, 0);
+  border-top: 5px solid orange;
   height: 85vh;
   width: 36.8em;
   h3 {
@@ -25,38 +25,38 @@ const Modal = styled.div`
     /* background-color: grey; */
     height: 76vh;
     p {
-      color: red;
+      color: white;
       cursor: pointer;
-      
+      text-decoration: underline;
+      text-align: center;
     }
     button {
       position: relative;
-      font-size: 3em;
-      background-color: rgb(0, 255, 0, 0.5);
-      border: 4px solid white;
+      background-color: orange;
+      border: 4px solid orange;
       color: white;
-      padding-left: 1em;
-      padding-right: 1em;
-      margin-top: .5em;
-      margin-bottom: .5em;
-      border-radius: 15px;
       &:hover {
-        border: 4px solid #7FFF00;
-        color: #7FFF00;
+        background-color: rgb(0,0,0, .0);
+        border: 4px solid orange;
+        color: orange;
         cursor: pointer;
       }
     }
     .cancel-button {
-      top: -2%;
       margin-left: 20px;
-      padding: 18px;
-      font-size: 2em;
-      width: 6em;
       background-color: rgb(0,0,0, .0);
+      color: orange;
       &:hover {
-        border: 4px solid hotpink;
-        color: hotpink;
+        border: 4px solid orange;
+        color: white;
+        background-color: orange
       }
+    }
+    .button {
+      font-size: 2em;
+      height: 2.5em;
+      width: 5em;
+      margin-bottom: .5em;
     }
   input {
     width: 70%;
@@ -93,7 +93,7 @@ class RegisterModal extends Component {
     password:'',
     verify_password:''
   }
-  
+
   changeHandler = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -157,10 +157,10 @@ class RegisterModal extends Component {
 
           {/* TODO: When the user submits the form, a Login modal will appear in lieu. */}
           <div>
-            <button onClick={this.doRegisterUser}> ⟶ </button>
+            <button onClick={this.doRegisterUser} className="button"> Register </button>
             <button
               onClick={this.props.hideRegisterModal}
-              className="cancel-button">
+              className="cancel-button button">
               Cancel
             </button>
             <p onClick={this.props.showLoginModal}>Already have an account?</p>

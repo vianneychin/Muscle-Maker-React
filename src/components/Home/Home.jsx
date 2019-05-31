@@ -58,8 +58,9 @@ const Buttons = styled.section`
     background-color: rgb(255, 255, 255, 0);
     color: orange;
     &:hover {
-      border: 3px solid hotpink;
-      color: hotpink;
+      border: 3px solid orange;
+      color: white;
+      background-color: orange;
     }
   }
   button {
@@ -70,14 +71,12 @@ const Buttons = styled.section`
     border: 3px solid orange;
     background-color: orange;
     color: white;
-    padding: .3em;
-    padding-left: .9em;
-    padding-right: .9em;
-    border-radius: 8px;
+    width: 6em;
+    height: 2em;
     &:hover {
       cursor: pointer;
-      border: 3px solid green;
-      color: green;
+      border: 3px solid orange;
+      color: orange;
       background-color: rgb(255, 255, 255, 0);
     }
   }
@@ -110,13 +109,13 @@ class Home extends React.Component {
           </Title>
           <Section>
             <section>
-              <p>get</p> <p>healthy</p>
+              <p>live</p> <p>healthy</p>
             </section>
             <section>
-              <p>get</p> <p>active</p>
+              <p>live</p> <p>active</p>
             </section>
             <section>
-              <p>get</p> <p>strong</p>
+              <p>live</p> <p>strong</p>
             </section>
 
             {/* Component */}

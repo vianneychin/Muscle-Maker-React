@@ -4,10 +4,13 @@ import styled    from 'styled-components'
 
 /* <----------- styled components -----------> */
 const Wrapper = styled.div`
+  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 73vh;
+  height: 44vh;
+  position: relative;
+  left: -35%;
 `
 /* <------- end of styled components --------> */
 

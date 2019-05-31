@@ -7,24 +7,30 @@ import YoutubeComponent from './YoutubeComponent/YoutubeComponent'
 
 /* <----------- styled components -----------> */
 
-const HeaderBackground = styled.div`
-  background-image: url('https://i.imgur.com/keKDODv.jpg?1');
+const Container = styled.div`
+  background-image: url('https://i.imgur.com/y370FSk.jpg');
   background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+`
+const HeaderBackground = styled.div`
+  /* background-image: url('https://i.imgur.com/keKDODv.jpg?1');
+  background-size: cover; */
   background-position: top;
-  height: 26em;
+  height: 21em;
   font-family: 'Roboto', sans-serif;
   color: rgb(245, 245, 245);
   a {
     text-decoration: none;
     color: white;
     h1:hover {
-      color: rgb(255, 0, 0, .6);
+      color: orange;
     }
     h1 {
       font-weight: ${props => props.lighter ? 300 : 400};
     }
     h4:hover {
-      color: hotpink;
+      color: orange;
     }
   }
 `
@@ -35,7 +41,6 @@ const Main = styled.main`
   justify-content: center;
   flex-direction: column;
   font-size: 2em;
-  background-color: rgb(0, 0, 0, 0.5);
   h1 {
     font-weight: 900;
   }
@@ -43,34 +48,39 @@ const Main = styled.main`
     font-weight: 300;
   }
 `
+const Shader = styled.div`
+  height: 100vh;
+  background-color: rgb(0, 0, 0, 0.5);
+`
 /* <-----------------------------------------> */
 
 
 class Dashboard extends React.Component {
   render() {
     return (
-      <div>
-        <HeaderBackground>
-          <Main>
-            <h1>Hi {this.props.currentUser.username}</h1>
+      <Container>
+        <Shader>
+          <HeaderBackground>
+            <Main>
+              <h1>Hi {this.props.currentUser.username}</h1>
 
-            {/* <Clock/> is from 'react-live-clock' npm */}
-            <h2 className="smaller">It's Monday</h2>
-            <h3><Clock className="smaller" format={'HH:mm:ss'} ticking={true}/></h3>
+              {/* <Clock/> is from 'react-live-clock' npm */}
+              <Clock className="smaller" format={'dddd, HH:mm:ss'} ticking={true}/>
 
-            <Link to="/workouts">
-              <h1>My Workouts ➞</h1>
-            </Link>
-            <Link onClick={()=>{this.props.doLogout()}}>
-              <h4 className="smaller">← Logout</h4>
-            </Link>
-          </Main>
-        </HeaderBackground>
+              <Link to="/workouts">
+                <h1 style={{marginLeft: '73px'}}>My Workouts ➞</h1>
+              </Link>
+              <Link onClick={()=>{this.props.doLogout()}}>
+                <h4 style={{marginRight: '67px'}}className="smaller">← Logout</h4>
+              </Link>
+            </Main>
+          </HeaderBackground>
 
-        {/* COMPONENT */}
-        {/* <YoutubeComponent /> */}
+          {/* COMPONENT */}
+          <YoutubeComponent />
+        </Shader>
 
-      </div>
+      </Container>
     )
   }
 }
