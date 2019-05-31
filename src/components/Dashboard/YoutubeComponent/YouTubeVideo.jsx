@@ -6,7 +6,7 @@ import styled from 'styled-components'
 const Container = styled.div`
   position: absolute;
   top: 47.5%;
-  left: 28%;
+  left: 18%;
   iframe {
     width: 650px;
     height: 400px;

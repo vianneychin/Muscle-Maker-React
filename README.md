@@ -1,5 +1,6 @@
 <a href="#">
   <h1>Muscle Maker</h1>
+  <p>Muscle Maker is a workout productivity website so that you can keep track of all the workouts you want to do in the future. The front-end was created with React and the backend was created with Python and Flask.</p>
 </a>
 
 <h1>Front-end</h1>
