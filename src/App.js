@@ -42,7 +42,6 @@ class App extends React.Component {
     }
   }
   handleLogin = async (info)=>{
-    console.log(info)
     try {
       const loginResponse = await fetch('http://localhost:8000/users/login', {
         method:      'POST',
@@ -53,15 +52,13 @@ class App extends React.Component {
         }
       })
       const parsedData = await loginResponse.json()
-      console.log(parsedData);
       if(parsedData.message === 'success'){
         localStorage.setItem("current", JSON.stringify(parsedData.user))
         this.setState({
           logged:      true,
           currentUser: parsedData.user,
-        },()=>{
-          this.getWorkouts()
-        })
+        },
+        () => { this.getWorkouts() })
         return this.props.history.push('/dashboard')
       }
     } catch (error) {
@@ -74,17 +71,14 @@ class App extends React.Component {
       const response = await fetch(`http://localhost:8000/users/${this.state.currentUser.id}`, {
         credentials: 'include'
       })
-      console.log(response)
       const responseParsed = await response.json()
-      console.log(responseParsed, 'workouts')
-      this.setState({workout: responseParsed})
-      console.log(this.state.workout)
+      this.setState({ workout: responseParsed })
     } catch (err) {
       console.log(err)
     }
   }
 
-  doLogout =  async () =>{
+  doLogout = async () => {
     await fetch('http://localhost:8000/users/logout')
     localStorage.clear()
     this.setState({
@@ -94,18 +88,19 @@ class App extends React.Component {
   }
 
   render() {
-    const {currentUser, workout} = this.state
+    const { currentUser, workout } = this.state
     return (
             <Switch>
               <Route
                 exact path = { routes.ROOT }
                 render     = { () => <Home handleLogin={this.handleLogin} handleRegister={this.handleRegister}/> }
               />
-              {currentUser 
-              ? <Route
-              exact path = { routes.DASHBOARD }
-              render     = { () => <Dashboard currentUser={currentUser} doLogout={this.doLogout}/> }
-              />
+              { currentUser
+              ?
+                <Route
+                  exact path = { routes.DASHBOARD }
+                  render     = { () => <Dashboard currentUser={currentUser} doLogout={this.doLogout}/> }
+                />
               : <Redirect to = {'/'}/>
               }
               { currentUser
