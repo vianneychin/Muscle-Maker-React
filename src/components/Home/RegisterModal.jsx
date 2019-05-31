@@ -22,7 +22,6 @@ const Modal = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    /* background-color: grey; */
     height: 76vh;
     p {
       color: white;
@@ -78,7 +77,6 @@ const Header = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: red; */
   position: relative;
   font-size: 3em;
   top: 3%;
