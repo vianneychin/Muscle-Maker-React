@@ -4,12 +4,10 @@ import styled from 'styled-components'
 /* <----------- styled components -----------> */
 const Modal = styled.div`
   position: absolute;
-  /* left: 31%; */
   left: 31%;
   top: 11%;
   font-family: 'Roboto',sans-serif;
   background-color: rgb(20, 20, 20, .99);
-  /* background-color: red; */
   border-top: 5px solid green;
   height: 85vh;
   width: 36.8em;
@@ -23,7 +21,6 @@ const Modal = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    /* background-color: grey; */
     height: 85vh;
     div {
       margin-top: 2em;
@@ -83,27 +80,20 @@ const Modal = styled.div`
 
 class AddWorkoutModal extends React.Component {
   state = {
-    muscle: "",
-    workout_name: "",
-    equipment: "",
-    weight: "",
-    sets: "",
-    reps: "",
+    muscle: '',
+    workout_name: '',
+    equipment: '',
+    weight: '',
+    sets: '',
+    reps: '',
     created_by: null
   }
-
   componentDidMount(){
-    this.setState({
-      created_by: this.props.currentUser.id
-    })
+    this.setState({ created_by: this.props.currentUser.id })
   }
-
   handleInput = (e) => {
-    this.setState({
-      [e.currentTarget.name]: e.currentTarget.value
-    })
+    this.setState({ [e.currentTarget.name]: e.currentTarget.value })
   }
-
   handleSubmit = async(e) =>{
     e.preventDefault()
     const createdWorkOut = await fetch('http://localhost:8000/api/v1/workouts',{
@@ -113,11 +103,8 @@ class AddWorkoutModal extends React.Component {
       headers: {
         'Content-Type' : 'application/json'
       }
-      
-
     })
   }
-
   render() {
     return (
       <Modal>
@@ -127,35 +114,30 @@ class AddWorkoutModal extends React.Component {
             placeholder="workout"
             name="muscle"
             onChange={this.handleInput}
-
           />
           <input
             autocomplete="off"
             placeholder="muscle"
             name='workout_name'
             onChange={this.handleInput}
-
           />
           <input
             autocomplete="off"
             placeholder="equipment"
             name='equipment'
             onChange={this.handleInput}
-
           />
           <input
             autocomplete="off"
             placeholder="weight"
             name='weight'
             onChange={this.handleInput}
-
           />
           <input
             autocomplete="off"
             placeholder="Sets"
             name='sets'
             onChange={this.handleInput}
-
           />
           <input
             autocomplete="off"
@@ -163,14 +145,14 @@ class AddWorkoutModal extends React.Component {
             name='reps'
             onChange={this.handleInput}
           />
-        <div>
-          <button>Add<br/>workout</button>
-          <button
-            onClick={this.props.hideAddWorkoutModal}
-            className="cancel-button"
-          >
-            Cancel</button>
-        </div>
+          <div>
+            <button>
+              Add<br/>workout
+            </button>
+            <button onClick={this.props.hideAddWorkoutModal} className="cancel-button">
+              Cancel
+            </button>
+          </div>
       </form>
     </Modal>
     )

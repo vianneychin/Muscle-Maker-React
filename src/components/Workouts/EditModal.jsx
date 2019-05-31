@@ -4,12 +4,10 @@ import styled from 'styled-components'
 /* <----------- styled components -----------> */
 const Modal = styled.div`
   position: absolute;
-  /* left: 31%; */
   left: 66%;
   top: 11%;
   font-family: 'Roboto',sans-serif;
   background-color: rgb(20, 20, 20, .99);
-  /* background-color: red; */
   border-top: 5px solid orangered;
   height: 85vh;
   width: 36.8em;
@@ -23,7 +21,6 @@ const Modal = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    /* background-color: grey; */
     height: 85vh;
     div {
       margin-top: 2em;
@@ -110,14 +107,14 @@ class EditModal extends React.Component {
             autocomplete="off"
             placeholder="Reps"
           />
-        <div>
-          <button>Confirm<br/>changes</button>
-          <button
-            onClick={this.props.hideEditModal}
-            className="cancel-button"
-          >
-            Cancel</button>
-        </div>
+          <div>
+            <button>
+              Confirm<br/>changes
+            </button>
+            <button onClick={this.props.hideEditModal} className="cancel-button">
+              Cancel
+            </button>
+          </div>
       </form>
     </Modal>
     )

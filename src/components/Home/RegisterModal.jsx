@@ -115,7 +115,7 @@ class RegisterModal extends Component {
   }
 
   render() {
-    const {username, email, password, verify_password} = this.state
+    const { username, email, password, verify_password } = this.state
     return (
       <Modal>
         <Header>
@@ -154,16 +154,16 @@ class RegisterModal extends Component {
             placeholder="verify password"
             autocomplete="off"
           />
-
-          {/* TODO: When the user submits the form, a Login modal will appear in lieu. */}
           <div>
-            <button onClick={this.doRegisterUser} className="button"> Register </button>
-            <button
-              onClick={this.props.hideRegisterModal}
-              className="cancel-button button">
+            <button onClick={this.doRegisterUser} className="button">
+              Register
+            </button>
+            <button onClick={this.props.hideRegisterModal} className="cancel-button button">
               Cancel
             </button>
-            <p onClick={this.props.showLoginModal}>Already have an account?</p>
+            <p onClick={this.props.showLoginModal}>
+              Already have an account?
+            </p>
           </div>
         </form>
       </Modal>

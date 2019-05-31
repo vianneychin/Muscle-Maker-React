@@ -4,7 +4,6 @@ import Clock            from 'react-live-clock'
 import styled           from 'styled-components'
 import YoutubeComponent from './YoutubeComponent/YoutubeComponent'
 
-
 /* <----------- styled components -----------> */
 
 const Container = styled.div`
@@ -14,8 +13,6 @@ const Container = styled.div`
   overflow: hidden;
 `
 const HeaderBackground = styled.div`
-  /* background-image: url('https://i.imgur.com/keKDODv.jpg?1');
-  background-size: cover; */
   background-position: top;
   height: 21em;
   font-family: 'Roboto', sans-serif;
@@ -63,10 +60,8 @@ class Dashboard extends React.Component {
           <HeaderBackground>
             <Main>
               <h1>Hi {this.props.currentUser.username}</h1>
-
               {/* <Clock/> is from 'react-live-clock' npm */}
               <Clock className="smaller" format={'dddd, HH:mm:ss'} ticking={true}/>
-
               <Link to="/workouts">
                 <h1 style={{marginLeft: '73px'}}>My Workouts ➞</h1>
               </Link>
