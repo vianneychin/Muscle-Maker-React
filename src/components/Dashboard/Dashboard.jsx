@@ -65,8 +65,7 @@ class Dashboard extends React.Component {
               <h1>Hi {this.props.currentUser.username}</h1>
 
               {/* <Clock/> is from 'react-live-clock' npm */}
-              <h2 className="smaller">It's Monday</h2>
-              <h3><Clock className="smaller" format={'HH:mm:ss'} ticking={true}/></h3>
+              <Clock className="smaller" format={'dddd, HH:mm:ss'} ticking={true}/>
 
               <Link to="/workouts">
                 <h1 style={{marginLeft: '73px'}}>My Workouts ➞</h1>
