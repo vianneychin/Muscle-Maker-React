@@ -113,7 +113,6 @@ class Workouts extends React.Component {
           this.state.addWorkoutModal
           ? <AddWorkoutModal
               hideAddWorkoutModal={this.hideAddWorkoutModal}
-              currentUser={this.props.currentUser}
             />
           : <div />
         }
