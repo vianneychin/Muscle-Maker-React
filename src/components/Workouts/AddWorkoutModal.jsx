@@ -82,86 +82,33 @@ const Modal = styled.div`
 /* <------- end of styled components --------> */
 
 class AddWorkoutModal extends React.Component {
-  state = {
-    muscle: "",
-    workout_name: "",
-    equipment: "",
-    weight: "",
-    sets: "",
-    reps: "",
-    created_by: null
-  }
-
-  componentDidMount(){
-    this.setState({
-      created_by: this.props.currentUser.id
-    })
-  }
-
-  handleInput = (e) => {
-    this.setState({
-      [e.currentTarget.name]: e.currentTarget.value
-    })
-  }
-
-  handleSubmit = async(e) =>{
-    e.preventDefault()
-    const createdWorkOut = await fetch('http://localhost:8000/api/v1/workouts',{
-      method: 'POST',
-      body: JSON.stringify(this.state),
-      credentials: 'include',
-      headers: {
-        'Content-Type' : 'application/json'
-      }
-      
-
-    })
-  }
-
   render() {
     return (
       <Modal>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={e => this.doRegisterUser(e) }>
           <input
             autocomplete="off"
             placeholder="workout"
-            name="muscle"
-            onChange={this.handleInput}
-
           />
           <input
             autocomplete="off"
             placeholder="muscle"
-            name='workout_name'
-            onChange={this.handleInput}
-
           />
           <input
             autocomplete="off"
             placeholder="equipment"
-            name='equipment'
-            onChange={this.handleInput}
-
           />
           <input
             autocomplete="off"
             placeholder="weight"
-            name='weight'
-            onChange={this.handleInput}
-
           />
           <input
             autocomplete="off"
             placeholder="Sets"
-            name='sets'
-            onChange={this.handleInput}
-
           />
           <input
             autocomplete="off"
             placeholder="Reps"
-            name='reps'
-            onChange={this.handleInput}
           />
         <div>
           <button>Add<br/>workout</button>
