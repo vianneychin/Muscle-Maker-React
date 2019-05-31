@@ -27,7 +27,7 @@ class YoutubeComponent extends React.Component {
     selectedVideo: null
   }
   componentDidMount() {
-    this.onTermSubmit('working out')
+    this.onTermSubmit('how to bench press')
   }
   onTermSubmit = async (term) => {
     const response = await youtube.get('./search', {
