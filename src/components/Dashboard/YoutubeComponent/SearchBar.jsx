@@ -15,10 +15,11 @@ const Input = styled.input `
   box-shadow: none;
   width: 40%;
   line-height: 24px;
-  border: 1px solid grey;
-  box-shadow: inset 0 1px 2px grey;
+  border: 1px solid white;
+  box-shadow: inset 0 1px 2px white;
   padding: 2px 6px;
   border-radius: 2px 0 0 2px;
+  color: white;
 `
 /* <------- end of styled components --------> */
 

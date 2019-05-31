@@ -8,13 +8,12 @@ import styled       from 'styled-components'
 /* <----------- styled components -----------> */
 const VideoContainer = styled.div`
   width: 70%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 `
 const VideoResults = styled.div`
-  float: left;
+  float: right;
   width: 30%;
 `
 const MainContainer = styled.div`

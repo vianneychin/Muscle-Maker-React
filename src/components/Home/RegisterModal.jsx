@@ -93,7 +93,7 @@ class RegisterModal extends Component {
     password:'',
     verify_password:''
   }
-  
+
   changeHandler = e => {
     this.setState({
       [e.target.name]: e.target.value

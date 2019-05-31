@@ -1,15 +1,15 @@
-/* The YoutubeVideo.jsx primarily contains the iframe for a YouTube video
-as well as the title of the video. */
-
 import React from 'react'
 import { ClipLoader } from 'react-spinners';
 import styled from 'styled-components'
 
 /* <----------- styled components -----------> */
 const Container = styled.div`
+  position: absolute;
+  top: 47.5%;
+  left: 28%;
   iframe {
-    width: 1100px;
-    height: 620px;
+    width: 650px;
+    height: 400px;
   }
 `
 const Loader = styled.div`
