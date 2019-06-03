@@ -94,9 +94,9 @@ class EditModal extends React.Component {
   handleInput = (e) => {
     this.setState({ [e.currentTarget.name]: e.currentTarget.value })
   }
-  handleSubmit = async(e) =>{
+  handleSubmit = async(e, id) =>{
     e.preventDefault()
-    const editWorkout = await fetch('http://localhost:8000/api/v1/workouts/',{
+    const editWorkout = await fetch(`http://localhost:8000/api/v1/workouts/${id}`,{
       method: 'PUT',
       body: JSON.stringify(this.state),
       credentials: 'include',
