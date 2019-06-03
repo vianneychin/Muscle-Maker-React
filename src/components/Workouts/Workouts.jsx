@@ -94,12 +94,13 @@ class Workouts extends React.Component {
           <h4>equipment | weight</h4>
           <h4>sets | reps</h4>
         </Category>
-        <MappedExercise workout={this.props.exercise} />
+        <MappedExercise workout={this.props.exercise} deleteWorkout={this.props.deleteWorkout}/>
         {
           this.state.addWorkoutModal
           ? <AddWorkoutModal
               hideAddWorkoutModal={this.hideAddWorkoutModal}
               currentUser={this.props.currentUser}
+              doAddWorkout={this.props.doAddWorkout}
             />
           : <div />
         }
