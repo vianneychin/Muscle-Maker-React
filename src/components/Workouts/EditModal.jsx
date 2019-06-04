@@ -96,7 +96,7 @@ class EditModal extends React.Component {
   }
   handleSubmit = async(e, id) =>{
     e.preventDefault()
-    const editWorkout = await fetch(`http://localhost:8000/api/v1/workouts/${id}`,{
+    const editWorkout = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/workouts/${id}`,{
       method: 'PUT',
       body: JSON.stringify(this.state),
       credentials: 'include',

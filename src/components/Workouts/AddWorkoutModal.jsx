@@ -99,7 +99,7 @@ class AddWorkoutModal extends React.Component {
   }
   handleSubmit = async(e) =>{
     e.preventDefault()
-    const createdWorkOut = await fetch('http://localhost:8000/api/v1/workouts',{
+    const createdWorkOut = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/workouts`,{
       method: 'POST',
       body: JSON.stringify(this.state),
       credentials: 'include',
