@@ -110,37 +110,37 @@ class EditModal extends React.Component {
       <Modal>
         <form onSubmit={this.handleSubmit}>
           <input
-            autocomplete="off"
+            autoComplete="off"
             placeholder="workout"
             name="muscle"
             onChange={this.handleInput}
           />
           <input
-            autocomplete="off"
+            autoComplete="off"
             placeholder="muscle"
             name='workout_name'
             onChange={this.handleInput}
           />
           <input
-            autocomplete="off"
+            autoComplete="off"
             placeholder="equipment"
             name='equipment'
             onChange={this.handleInput}
           />
           <input
-            autocomplete="off"
+            autoComplete="off"
             placeholder="weight"
             name='weight'
             onChange={this.handleInput}
           />
           <input
-            autocomplete="off"
+            autoComplete="off"
             placeholder="Sets"
             name='sets'
             onChange={this.handleInput}
           />
           <input
-            autocomplete="off"
+            autoComplete="off"
             placeholder="Reps"
             name='reps'
             onChange={this.handleInput}
