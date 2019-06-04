@@ -25,6 +25,7 @@ class MappedExercise extends Component {
                     <li>{exercise.workout_name}</li>
                     <li>{exercise.equipment} | {exercise.weight}lbs</li>
                     <li>{exercise.sets} sets | {exercise.reps} reps</li>
+                    <button onClick={() => this.props.deleteWorkout(exercise.id)}>Delete</button>
                 </UnorderedList>
         )
     })

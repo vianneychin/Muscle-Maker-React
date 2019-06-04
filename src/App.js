@@ -1,5 +1,5 @@
 import './global.css';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import {withRouter} from 'react-router'
 import * as routes  from './constants/routes'
 import React from 'react';
@@ -65,6 +65,13 @@ class App extends React.Component {
       console.log(error)
     }
   }
+  
+
+  doAddWorkout = workout => {
+    this.setState({
+      workout: [...this.state.workout, workout]
+    })
+  }
 
   getWorkouts = async () => {
     try {
@@ -78,6 +85,19 @@ class App extends React.Component {
     }
   }
 
+  deleteWorkout = async (id) => { 
+    console.log('clicked')
+    await fetch(`http://localhost:8000/api/v1/workouts/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application"
+      }
+    });
+    this.setState({
+      workout: this.state.workout.filter(w => w.id !== id)
+    })
+  };
+
   doLogout = async () => {
     await fetch('http://localhost:8000/users/logout')
     localStorage.clear()
@@ -85,7 +105,6 @@ class App extends React.Component {
       currentUser: null,
       logged: false
     })
-    // this.props.history.push(routes.LOGIN)
   }
 
   render() {
@@ -108,7 +127,14 @@ class App extends React.Component {
                 ?
                   <Route
                     exact path = { routes.WORKOUTS }
-                    render     = { () => <Workouts exercise={workout} currentUser={currentUser} doLogout={this.doLogout} /> }
+                    render     = { () => 
+                    <Workouts 
+                      exercise={workout} 
+                      deleteWorkout={this.deleteWorkout} 
+                      currentUser={currentUser} 
+                      doLogout={this.doLogout}
+                      doAddWorkout={this.doAddWorkout}
+                    /> }
                   />
                 : <Redirect to = {'/'}/>
               }

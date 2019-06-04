@@ -107,9 +107,8 @@ class AddWorkoutModal extends React.Component {
         'Content-Type' : 'application/json'
       }
     })
-    this.setState({
-      workout: createdWorkOut
-    })
+    const newWorkout = await createdWorkOut.json()
+    this.props.doAddWorkout(newWorkout)
   }
 
   deleteWorkout(){
