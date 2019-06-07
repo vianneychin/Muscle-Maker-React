@@ -1,5 +1,9 @@
 <a href="#">
-  <h1>Muscle Maker</h1>
+  <h1>
+    <a href="https://muscle-maker-2.herokuapp.com/">
+      Muscle Maker
+    </a>
+  </h1>
   <p>Muscle Maker is a workout productivity website so that you can keep track of all the workouts you want to do in the future. The front-end was created with React and the backend was created with Python and Flask.</p>
 </a>
 <h2>Screenshots:</h2>
