@@ -1,9 +1,9 @@
-import React        from 'react'
-import SearchBar    from './SearchBar'
-import youtube      from './api/youtube'
-import VideoList    from './VideoList'
+import React from 'react'
+import SearchBar from './SearchBar'
+import youtube from './api/youtube'
+import VideoList from './VideoList'
 import YouTubeVideo from './YouTubeVideo'
-import styled       from 'styled-components'
+import styled from 'styled-components'
 
 /* <----------- styled components -----------> */
 const VideoContainer = styled.div`
@@ -29,7 +29,7 @@ class YoutubeComponent extends React.Component {
   componentDidMount() {
     this.onTermSubmit('how to bench press')
   }
-  onTermSubmit = async (term) => {
+  onTermSubmit = async term => {
     const response = await youtube.get('./search', {
       params: {
         q: term
@@ -40,35 +40,26 @@ class YoutubeComponent extends React.Component {
       selectedVideo: response.data.items[1]
     })
   }
-  onVideoSelect = (video) => {
+  onVideoSelect = video => {
     this.setState({ selectedVideo: video })
   }
   render() {
     return (
       <div>
         <MainContainer>
-
           {/* COMPONENT */}
-          <SearchBar
-            onTermSubmit={this.onTermSubmit}
-          />
+          <SearchBar onTermSubmit={this.onTermSubmit} />
 
           <VideoResults>
-
             {/* COMPONENT */}
             <VideoList
               onVideoSelect={this.onVideoSelect}
               videos={this.state.videos}
             />
-
           </VideoResults>
           <VideoContainer>
-
             {/* COMPONENT */}
-            <YouTubeVideo
-              video={ this.state.selectedVideo }
-            />
-
+            <YouTubeVideo video={this.state.selectedVideo} />
           </VideoContainer>
         </MainContainer>
       </div>

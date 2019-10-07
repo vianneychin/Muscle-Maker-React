@@ -1,4 +1,4 @@
-import React  from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 /* <----------- styled components -----------> */
@@ -19,20 +19,18 @@ const Section = styled.section`
   display: flex;
   flex-direction: row-reverse;
   padding-top: 1.7em;
-/* <------- end of styled components --------> */
+  /* <------- end of styled components --------> */
 `
 
 const VideoItem = ({ video, onVideoSelect }) => {
   return (
     <Section>
       <Span>{video.snippet.title}</Span>
-        <Wrapper
-          onClick={() => onVideoSelect(video)}
-        >
-          <img
-            alt={video.snippet.title}
-            src={video.snippet.thumbnails.medium.url}
-          />
+      <Wrapper onClick={() => onVideoSelect(video)}>
+        <img
+          alt={video.snippet.title}
+          src={video.snippet.thumbnails.medium.url}
+        />
       </Wrapper>
     </Section>
   )

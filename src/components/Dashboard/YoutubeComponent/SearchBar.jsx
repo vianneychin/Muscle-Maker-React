@@ -9,7 +9,7 @@ const Form = styled.form`
   padding-top: 2em;
   padding-bottom: 2em;
 `
-const Input = styled.input `
+const Input = styled.input`
   background-color: transparent;
   font-size: 16px;
   box-shadow: none;
@@ -27,20 +27,20 @@ class SearchBar extends React.Component {
   state = {
     term: ''
   }
-  onInputChange = (event) => {
+  onInputChange = event => {
     this.setState({ term: event.target.value })
   }
-  onFormSubmit = (event) => {
+  onFormSubmit = event => {
     event.preventDefault()
-    this.props.onTermSubmit( this.state.term )
+    this.props.onTermSubmit(this.state.term)
   }
   render() {
     return (
       <div>
         <Form onSubmit={this.onFormSubmit}>
           <Input
-            placeholder="Search"
-            type="text"
+            placeholder='Search'
+            type='text'
             value={this.state.term}
             onChange={this.onInputChange}
           />

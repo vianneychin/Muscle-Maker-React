@@ -1,9 +1,9 @@
-import React           from 'react'
-import { Link }        from 'react-router-dom'
-import EditModal       from './EditModal'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import EditModal from './EditModal'
 import AddWorkoutModal from './AddWorkoutModal'
-import MappedExercise  from './MappedExercise'
-import styled          from 'styled-components'
+import MappedExercise from './MappedExercise'
+import styled from 'styled-components'
 
 /* <----------- styled components -----------> */
 const Container = styled.div`
@@ -52,15 +52,15 @@ const Category = styled.div`
   justify-content: space-around;
   font-family: 'Montserrat', sans-serif;
   font-size: 2em;
-  padding-bottom: .5em;
-  padding-top: .5em;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
 `
 /* <-----------------------------------------> */
 
 class Workouts extends React.Component {
   state = {
     addWorkoutModal: false,
-    editModal: false,
+    editModal: false
   }
   showAddWorkoutModal = () => {
     this.setState({ addWorkoutModal: true })
@@ -80,11 +80,19 @@ class Workouts extends React.Component {
       <Container>
         <Header>
           <div>
-            <Link to="/dashboard"><h3>Go back</h3></Link>
-            <Link onClick={ () => { this.props.doLogout() } }>
+            <Link to='/dashboard'>
+              <h3>Go back</h3>
+            </Link>
+            <Link
+              onClick={() => {
+                this.props.doLogout()
+              }}
+            >
               <h4>Logout</h4>
             </Link>
-            <button type="button" onClick={this.showAddWorkoutModal}>Add a workout＋</button>
+            <button type='button' onClick={this.showAddWorkoutModal}>
+              Add a workout＋
+            </button>
           </div>
         </Header>
         <Category>
@@ -93,24 +101,27 @@ class Workouts extends React.Component {
           <h4>equipment | weight</h4>
           <h4>sets | reps</h4>
         </Category>
-        <MappedExercise workout={this.props.exercise} deleteWorkout={this.props.deleteWorkout}/>
-        {
-          this.state.addWorkoutModal
-          ? <AddWorkoutModal
-              hideAddWorkoutModal={this.hideAddWorkoutModal}
-              currentUser={this.props.currentUser}
-              doAddWorkout={this.props.doAddWorkout}
-            />
-          : <div />
-        }
-        {
-          this.state.editModal
-          ? <EditModal
-              hideEditModal={this.hideEditModal}
-              currentUser={this.props.currentUser}
-            />
-          : <div />
-        }
+        <MappedExercise
+          workout={this.props.exercise}
+          deleteWorkout={this.props.deleteWorkout}
+        />
+        {this.state.addWorkoutModal ? (
+          <AddWorkoutModal
+            hideAddWorkoutModal={this.hideAddWorkoutModal}
+            currentUser={this.props.currentUser}
+            doAddWorkout={this.props.doAddWorkout}
+          />
+        ) : (
+          <div />
+        )}
+        {this.state.editModal ? (
+          <EditModal
+            hideEditModal={this.hideEditModal}
+            currentUser={this.props.currentUser}
+          />
+        ) : (
+          <div />
+        )}
       </Container>
     )
   }

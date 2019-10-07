@@ -1,16 +1,16 @@
-import React         from 'react'
-import LoginModal    from './LoginModal'
+import React from 'react'
+import LoginModal from './LoginModal'
 import RegisterModal from './RegisterModal'
-import styled        from 'styled-components'
+import styled from 'styled-components'
 
 /* <----------- styled components -----------> */
 const Container = styled.div`
   background-image: url('https://i.imgur.com/ZtdwQ6Z.jpg');
   background-size: cover;
-  height:100vh;
+  height: 100vh;
 `
 const Main = styled.div`
-  background-color: rgb(0,0,0,.8);
+  background-color: rgb(0, 0, 0, 0.8);
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -29,23 +29,23 @@ const Title = styled.div`
   text-align: center;
 `
 const Section = styled.section`
-    font-family: 'Montserrat',sans-serif;
-    font-size: 2em;
-    font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2em;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 5%;
+  letter-spacing: 5px;
+  section {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    top: 5%;
-    letter-spacing: 5px;
-    section {
-      display: flex;
-      width: 7.7em;
-      justify-content: start;
-      p:nth-child(1) {
-        margin-right: .5em;
-      }
+    width: 7.7em;
+    justify-content: start;
+    p:nth-child(1) {
+      margin-right: 0.5em;
     }
+  }
 `
 const Buttons = styled.section`
   width: 41em;
@@ -89,7 +89,7 @@ class Home extends React.Component {
     loginModal: false
   }
   showRegisterModal = () => {
-    this.setState({ registerModal: true, loginModal:false })
+    this.setState({ registerModal: true, loginModal: false })
   }
   hideRegisterModal = () => {
     this.setState({ registerModal: false })
@@ -119,33 +119,37 @@ class Home extends React.Component {
             </section>
           </Section>
           <Buttons>
-            <button type="button" onClick={this.showRegisterModal}>
+            <button type='button' onClick={this.showRegisterModal}>
               Register
             </button>
-            <button className="login-button" type="button" onClick={this.showLoginModal}>
+            <button
+              className='login-button'
+              type='button'
+              onClick={this.showLoginModal}
+            >
               Login
             </button>
           </Buttons>
         </Main>
-        {
-          this.state.registerModal
-          ? <RegisterModal
-              handleRegister={this.props.handleRegister}
-              hideRegisterModal={ this.hideRegisterModal }
-              registerModal={ this.registerModal }
-              showLoginModal={ this.showLoginModal }
-            />
-          : <div />
-        }
-        {
-          this.state.loginModal
-          ? <LoginModal
-              handleLogin={this.props.handleLogin}
-              hideLoginModal={ this.hideLoginModal }
-              showRegisterModal={ this.showRegisterModal }
-            />
-          : < div />
-        }
+        {this.state.registerModal ? (
+          <RegisterModal
+            handleRegister={this.props.handleRegister}
+            hideRegisterModal={this.hideRegisterModal}
+            registerModal={this.registerModal}
+            showLoginModal={this.showLoginModal}
+          />
+        ) : (
+          <div />
+        )}
+        {this.state.loginModal ? (
+          <LoginModal
+            handleLogin={this.props.handleLogin}
+            hideLoginModal={this.hideLoginModal}
+            showRegisterModal={this.showRegisterModal}
+          />
+        ) : (
+          <div />
+        )}
       </Container>
     )
   }

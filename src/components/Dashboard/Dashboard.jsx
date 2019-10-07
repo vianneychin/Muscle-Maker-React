@@ -1,7 +1,7 @@
-import React            from 'react'
-import { Link }         from 'react-router-dom'
-import Clock            from 'react-live-clock'
-import styled           from 'styled-components'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import Clock from 'react-live-clock'
+import styled from 'styled-components'
 import YoutubeComponent from './YoutubeComponent/YoutubeComponent'
 
 /* <----------- styled components -----------> */
@@ -24,7 +24,7 @@ const HeaderBackground = styled.div`
       color: orange;
     }
     h1 {
-      font-weight: ${props => props.lighter ? 300 : 400};
+      font-weight: ${props => (props.lighter ? 300 : 400)};
     }
     h4:hover {
       color: orange;
@@ -51,7 +51,6 @@ const Shader = styled.div`
 `
 /* <-----------------------------------------> */
 
-
 class Dashboard extends React.Component {
   render() {
     return (
@@ -61,20 +60,28 @@ class Dashboard extends React.Component {
             <Main>
               <h1>Hi {this.props.currentUser.username}</h1>
               {/* <Clock/> is from 'react-live-clock' npm */}
-              <Clock className="smaller" format={'dddd, HH:mm:ss'} ticking={true}/>
-              <Link to="/workouts">
-                <h1 style={{marginLeft: '73px'}}>My Workouts ➞</h1>
+              <Clock
+                className='smaller'
+                format={'dddd, HH:mm:ss'}
+                ticking={true}
+              />
+              <Link to='/workouts'>
+                <h1 style={{ marginLeft: '73px' }}>My Workouts ➞</h1>
               </Link>
-              <Link onClick={ () => { this.props.doLogout() } }>
-                <h4 style={{marginRight: '67px'}}className="smaller">← Logout</h4>
+              <Link
+                onClick={() => {
+                  this.props.doLogout()
+                }}
+              >
+                <h4 style={{ marginRight: '67px' }} className='smaller'>
+                  ← Logout
+                </h4>
               </Link>
             </Main>
           </HeaderBackground>
 
-          {/* COMPONENT */}
           <YoutubeComponent />
         </Shader>
-
       </Container>
     )
   }

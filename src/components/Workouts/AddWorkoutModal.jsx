@@ -6,13 +6,13 @@ const Modal = styled.div`
   position: absolute;
   left: 31%;
   top: 11%;
-  font-family: 'Roboto',sans-serif;
-  background-color: rgb(20, 20, 20, .99);
+  font-family: 'Roboto', sans-serif;
+  background-color: rgb(20, 20, 20, 0.99);
   border-top: 5px solid orange;
   height: 85vh;
   width: 36.8em;
   h3 {
-    margin-left: .7em;
+    margin-left: 0.7em;
     color: white;
     font-weight: 300;
   }
@@ -33,8 +33,8 @@ const Modal = styled.div`
       background-color: orange;
       border: 4px solid orange;
       color: white;
-      margin-top: .5em;
-      margin-bottom: .5em;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
       border-radius: 15px;
       padding: 2px;
       padding-left: 1em;
@@ -52,7 +52,7 @@ const Modal = styled.div`
       padding: 18px;
       font-size: 2em;
       width: 6em;
-      background-color: rgb(0,0,0, .0);
+      background-color: rgb(0, 0, 0, 0);
       position: relative;
       top: 4%;
       color: orange;
@@ -62,19 +62,19 @@ const Modal = styled.div`
         color: white;
       }
     }
-  input {
-    width: 70%;
-    padding-top: 5%;
-    display: block;
-    background: 0;
-    border: 0;
-    border-bottom: 2px solid white;
-    color: #fff;
-    font-weight: 600;
-    font-size: 2em;
-    padding-bottom: 8px;
-    outline: 0;
-    text-align: center;
+    input {
+      width: 70%;
+      padding-top: 5%;
+      display: block;
+      background: 0;
+      border: 0;
+      border-bottom: 2px solid white;
+      color: #fff;
+      font-weight: 600;
+      font-size: 2em;
+      padding-bottom: 8px;
+      outline: 0;
+      text-align: center;
     }
   }
 `
@@ -91,79 +91,85 @@ class AddWorkoutModal extends React.Component {
     created_by: null,
     workout: {}
   }
-  componentDidMount(){
+  componentDidMount() {
     this.setState({ created_by: this.props.currentUser.id })
   }
-  handleInput = (e) => {
+  handleInput = e => {
     this.setState({ [e.currentTarget.name]: e.currentTarget.value })
   }
-  handleSubmit = async(e) =>{
+  handleSubmit = async e => {
     e.preventDefault()
-    const createdWorkOut = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/workouts`,{
-      method: 'POST',
-      body: JSON.stringify(this.state),
-      credentials: 'include',
-      headers: {
-        'Content-Type' : 'application/json'
+    const createdWorkOut = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/api/v1/workouts`,
+      {
+        method: 'POST',
+        body: JSON.stringify(this.state),
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        }
       }
-    })
+    )
     const newWorkout = await createdWorkOut.json()
     this.props.doAddWorkout(newWorkout)
   }
 
-  deleteWorkout(){
-
-  }
+  deleteWorkout() {}
   render() {
     return (
       <Modal>
         <form onSubmit={this.handleSubmit}>
           <input
-            autoComplete="off"
-            placeholder="workout"
-            name="muscle"
+            autoComplete='off'
+            placeholder='workout'
+            name='muscle'
             onChange={this.handleInput}
           />
           <input
-            autoComplete="off"
-            placeholder="muscle"
+            autoComplete='off'
+            placeholder='muscle'
             name='workout_name'
             onChange={this.handleInput}
           />
           <input
-            autoComplete="off"
-            placeholder="equipment"
+            autoComplete='off'
+            placeholder='equipment'
             name='equipment'
             onChange={this.handleInput}
           />
           <input
-            autoComplete="off"
-            placeholder="weight"
+            autoComplete='off'
+            placeholder='weight'
             name='weight'
             onChange={this.handleInput}
           />
           <input
-            autoComplete="off"
-            placeholder="Sets"
+            autoComplete='off'
+            placeholder='Sets'
             name='sets'
             onChange={this.handleInput}
           />
           <input
-            autoComplete="off"
-            placeholder="Reps"
+            autoComplete='off'
+            placeholder='Reps'
             name='reps'
             onChange={this.handleInput}
           />
           <div>
             <button>
-              Add<br/>workout
+              Add
+              <br />
+              workout
             </button>
-            <button onClick={this.props.hideAddWorkoutModal} className="cancel-button">
+            <button
+              onClick={this.props.hideAddWorkoutModal}
+              className='cancel-button'
+            >
               Cancel
             </button>
           </div>
-      </form>
-    </Modal>
+        </form>
+      </Modal>
     )
   }
 }

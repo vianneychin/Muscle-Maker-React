@@ -1,5 +1,5 @@
 import React from 'react'
-import { ClipLoader } from 'react-spinners';
+import { ClipLoader } from 'react-spinners'
 import styled from 'styled-components'
 
 /* <----------- styled components -----------> */
@@ -30,10 +30,7 @@ const YouTubeVideo = ({ video }) => {
   const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`
   return (
     <Container>
-      <iframe
-        title="a video"
-        src={videoSrc}
-      />
+      <iframe title='a video' src={videoSrc} />
     </Container>
   )
 }
