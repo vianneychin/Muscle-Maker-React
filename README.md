@@ -4,7 +4,7 @@
       Muscle Maker
     </a>
   </h1>
-  <p>Muscle Maker is a workout productivity website so that you can keep track of all the workouts you want to do in the future. The front-end was created with React and the backend was created with Python and Flask.</p>
+  <p>Muscle Maker is a workout productivity website so that you can keep track of all the workouts you want to do in the future. The front-end was created with React and the backend <a href="https://github.com/vianneychin/muscle-maker-python">backend</a>was created with Python and Flask.</p>
 </a>
 <h2>Screenshots:</h2>
 <img src="https://i.imgur.com/eoZQY5f.png">
